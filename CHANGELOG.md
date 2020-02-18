@@ -1,47 +1,52 @@
 # Change log
 
+## [2.3.0] - 2020.02.18:
+### Fixed
+- Displaying ratioed option prices with specials and discounts
+- Code improvements
+
 ## [2.2.0] - 2020.02.15:
 ### Added
-    - Compatibility with a number of related custom extensions
+- Compatibility with a number of related custom extensions
 ### Fixed
-    - Live update points for checkbox options
-    - Live update when returning to previous page
-    - Minor code improvements
+- Live update points for checkbox options
+- Live update when returning to previous page
+- Minor code improvements
 
 ## [2.1.0] - 2020.02.03:
 ### Added
-    - Added «Hide ExTax» feature
+- Added «Hide ExTax» feature
 ### Fixed
-    - Compatibility with custom themes
-    - Minor interface changes
+- Compatibility with custom themes
+- Minor interface changes
 
 ## [2.0.0] - 2020.01.31:
 ### Changed
-    - Behave of "=" prefix for for checkboxes is turned to "+"
+- Behave of "=" prefix for for checkboxes is turned to "+"
 ### Fixed
-    - Minor improvements
+- Minor improvements
 
 ## [1.5.0] - 2020.01.16:
 ### Changed
-    - «The equals sign» feature is now distribute as a separate extension
+- «The equals sign» feature is now distribute as a separate extension
 ### Fixed
-    - Improvements
+- Improvements
 
 ## [1.4.0] - 2019.10.23:
 ### Fixed
-    - Improvements
+- Improvements
 
 ## [1.3.0] - 2019.10.16:
 ### Fixed
-    - Improvements.
+- Improvements.
 
 ## [1.2.0] - 2019.06.18:
 ### Fixed
-    - Minor bugs
+- Minor bugs
 
 ## [1.1.0] - 2019.06.07:
 ### Fixed
-    - Minor improvements
+- Minor improvements
 
 ## [1.0.0] - 2019.01.21:
-    - First release
+- First release
