@@ -1,4 +1,4 @@
-## Live Options
+# Live Options
 
 ## Description
 Live Options extensions are for Opencart 3 CMS. They allows to live update information on the product page depending on the selected product options and quantity.
