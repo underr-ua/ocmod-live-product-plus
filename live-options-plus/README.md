@@ -9,7 +9,7 @@ The Live Options+ extension is for Opencart 3 CMS. It allows to live update pric
 * Hiding option prefixes
 * Hiding ex-tax prices
 * Custom text for free options
-* OCMOD + Opencart Event System
+* OCMOD/Event Systems
 
 ## Live demo
 * [Admin](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/live_options)

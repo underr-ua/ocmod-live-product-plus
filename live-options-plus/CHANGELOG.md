@@ -1,5 +1,9 @@
 # Change log
 
+## [2.3.1] - 2020.03.12:
+### Fixed
+- Code improvements
+
 ## [2.3.0] - 2020.02.18:
 ### Fixed
 - Displaying ratioed option prices with specials and discounts
