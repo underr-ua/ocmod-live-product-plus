@@ -17,7 +17,7 @@ The Live Options+ extension is for Opencart 3 CMS. It allows to live update pric
 
 ## Links
 * [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36005)
-* [Homepage](https://underr.space/en/notes/projects/project-014.html)
+* [Homepage](https://underr.space/en/notes/projects/project-0014.html)
 * [Github](https://git.io/JvBfS)
 
 ## License
