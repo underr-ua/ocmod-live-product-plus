@@ -1,5 +1,9 @@
 # Change log
 
+## [2.3.3] - 2020.03.20:
+### Changed
+- Improve compatibility with 3rd party templates
+
 ## [2.3.2] - 2020.03.14:
 ### Added
 - Ability to hide option prices
