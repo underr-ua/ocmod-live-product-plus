@@ -1,5 +1,9 @@
 # Change log
 
+## [2.3.4] - 2020.04.03:
+### Fixed
+- Improve compatibility with new version of the Price Range+ module
+
 ## [2.3.3] - 2020.03.20:
 ### Changed
 - Improve compatibility with 3rd party templates

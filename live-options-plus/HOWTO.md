@@ -5,9 +5,9 @@
 * Admin > Extensions > Installer > [Upload]: live-options-plus.ocmod.zip
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Dashboard > [Developer Settings] > [Refresh]
+* Admin > Extensions > Extensions > Modules > [underr] Live Options+ > [Install]
 
 ## How to configure
-* Admin > Extensions > Extensions > Modules > [underr] Live Options+ > [Install]
 * Admin > Extensions > Extensions > Modules > [underr] Live Options+ > [Edit]
 
 ## How to uninstall
