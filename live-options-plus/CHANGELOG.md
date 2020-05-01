@@ -1,6 +1,6 @@
 # Change log
 
-## [2.4.0] - 2020.04.30:
+## [2.4.0] - 2020.05.01:
 ### Changed
 - Improve compatibility with Live Options Ultimate
 ### Fixed
