@@ -1,5 +1,11 @@
 # Change log
 
+## [2.4.0] - 2020.04.30:
+### Changed
+- Improve compatibility with Live Options Ultimate
+### Fixed
+- Minor fixes
+
 ## [2.3.4] - 2020.04.03:
 ### Fixed
 - Improve compatibility with new version of the Price Range+ module

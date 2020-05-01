@@ -18,6 +18,7 @@
 * Admin > Dashboard > [Developer Settings] > [Refresh]
 
 ## Additional Info
-* To add the equal sign as option prefix must install [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383)
-* The extension is theme-dependent, so in some cases it may need to make minor fixes to full compatibility with custom themes (this is free).
-* To add «free» options needs to use "= 0" option price
+* To add the equal sign as option prefix install [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383)
+* The extension is slightly theme-dependent on store templates, and in some cases minor corrections may be required to make it fully compatible with custom theme.
+* To display some specific text near free product options set price prefix for thees option to "=" and specify the text in the extension settings (option "Free")
+
