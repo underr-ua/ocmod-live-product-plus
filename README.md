@@ -1,9 +1,9 @@
 # Live Options
 
 ## Description
-Live Options extensions are for Opencart 3 CMS. They allows to live update information on the product page depending on the selected product options and quantity.
+The "Live Options+" and "Live Options Ultimate" extensions are for Opencart 3.x CMS. They allow to live update the product page, depending on the selected options and product quantity, show total product weight, option availability, etc.
 
 ## Read more
-* [Live Options+](live-options-plus) - base module
-* [Live Options Pro](live-options-plus) - extended version (coming soon)
+* [Live Options+](live-options-plus) - the base module
+* [Live Options Ultimate](live-options-ultimte) - extension of the base module version
 
