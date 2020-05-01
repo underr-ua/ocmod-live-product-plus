@@ -5,5 +5,5 @@ The "Live Options+" and "Live Options Ultimate" extensions are for Opencart 3.x 
 
 ## Read more
 * [Live Options+](live-options-plus) - the base module
-* [Live Options Ultimate](live-options-ultimte) - extension of the base module version
+* [Live Options Ultimate](live-options-ultimate) - extension of the base module version
 
