@@ -7,6 +7,7 @@
 
 # Ignore
 img
+makefile
 *.code-workspace
 *.bb
 *.php_cs
