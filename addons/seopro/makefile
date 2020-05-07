@@ -1,4 +1,4 @@
-mod_name=$(shell basename `pwd`)
+mod_name=live-options-seopro
 bin_dir=bin
 img_dir=img
 src_dir=src
