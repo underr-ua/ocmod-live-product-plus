@@ -2,7 +2,7 @@
 
 ## [1.0.1] - 2020.05.08:
 ### Fixed
-- Language varibles loading
+- Loading language varibles
 - Minor fixes
 
 ## [1.0.0] - 2020.05.01:
