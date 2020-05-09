@@ -1,5 +1,9 @@
 # Change log
 
+## [2.4.2] - 2020.05.09:
+### Fixed:
+- Discounts markup
+
 ## [2.4.1] - 2020.05.05:
 ### Added
 - Workaround for quantity buttons
