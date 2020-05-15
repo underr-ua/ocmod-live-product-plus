@@ -1,3 +1,3 @@
-# Live Options PlazaThemes
+# Plaza-Themes Compatibility Addon
 
-The "Live Options PlazaThemes" addon is a simple fix to provide compatibilty between Live Options modules and PlazaThemes templates in product quick view functionality.
+The "Plaza-Themes Compatibility Addon" is an addon for OpenCart Live Options+ module to provide compatibility with templates maded by [Plaza-Themes](https://themeforest.net/collections/3840191-opencart-themes)

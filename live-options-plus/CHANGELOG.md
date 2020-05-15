@@ -1,5 +1,13 @@
 # Change log
 
+## [2.5.0] - 2020.05.15:
+### Changed:
+- Minor cleaning
+### Fixed:
+- IE11 compatibility
+- Event handling
+- Markup issues
+
 ## [2.4.2] - 2020.05.09:
 ### Fixed:
 - Discounts markup

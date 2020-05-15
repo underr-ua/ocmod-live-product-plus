@@ -1,4 +1,4 @@
-# Live Options SeoPro
+# SeoPro Compatibilit Addon
 
-The "Live Options SeoPro" addon is a simple fix to provide compatibility between Live Options modules and [Seo Pro](https://opencart3x.ru/module/seo-smm/seo-pro) module.
+The "SeoPro Compatibility Addon" is a simple fix to provide compatibility between Live Options modules and [Seo Pro](https://opencart3x.ru/module/seo-smm/seo-pro) module.
 
