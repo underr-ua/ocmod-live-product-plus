@@ -1,0 +1,14 @@
+@-webkit-keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(359deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(359deg); }
+}
+
+#live-options-svg {
+    -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+}

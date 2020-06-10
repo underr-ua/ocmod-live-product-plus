@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Options" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JfS2p.
+-->
+
+<modification>
+	<name>[underr] Live Options+ > Ajax Preloader</name>
+	<code>live-options-ajax-preloader</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JvBf1</link>
+
+	<file path="catalog/controller/extension/module/live_options.php" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[$data['live_options'] = array();]]>
+			</search>
+			<add position="after">
+				<![CDATA[
+				$svg = '<span id="live-options-svg-container" style="margin-left: 5px; display: none;"><svg id="live-options-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve"><image id="live-options-image" x="0" y="0" xlink:href="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAk1BMVEX////8/vzc4uSktrx0jpxManwsUmSMoqyMnqzk6uw8WmwUPlQEMkSEmqQUOkw8Xmx0ipQcQlQEMkz09vQMOkzM2tw8YnTU2ty0vsQMNkz0+vxcdoQsTmRshpTM1tz8+vz08vTEztS8xszc5uREZnTU3uRUcnyUpqycrrQ0VmQkTlwkSlx0ipxceozs8vRUdoS0wszXfHE2AAAAAWJLR0QMgbNRYwAAAAd0SU1FB+QGBQskG45HMQ0AAAJwSURBVEjHpVZrl5pADI2wKC8Rhm2RggwIVal2u///1zXJgA/EmT1nwwd53Dt5JwJMZGHZb85yBeAunTfbWoBevJUfhChrgDX9RpuVp4PHiQj5YgL+ChEG8StK6r6LUOHDgaAeIzedw//YMFzBlEkiHE74mT3jt4HIb4jRpPE52k7xvwrykT+WO7uSAHVl78qRIYonq1KHP+ZFU99eyqbI2UZngt+3eKKDn7pGPn6RTYcHOXhIu7/zNyh/o45DdJTwJPIUHRCflcHV8xTjs0RGPRMLkgrxFrqzGe1yybGy1VUA4UW+HvL7zn756Wt86nNEIpXzWMX7pNNwUtGNWUHCsXakjiA7ZiSk4si3UQVaySKGHbH+2TxRSD0BCob5EixF3Rvw0ChDLLDZ/742EWRPDGHDjkO0M+GBgSECO65/20xgU0QHf9ikzEyouLfO0J9JjC5gpSEsKUsz8NvitZ7Veqa0oUgGenD+qtOZUE533PpfCyv1MBY3MWMzQWX4AjYXep+a8HXPibNV8YWiMREa1XMWSNV9hYnwl9sMyxtWXIWRIU7UQHi5lIiEbdK36EK1qJoCsZq5piFAjAs/eLlia4yqlEH5sFpcjqyjm0sH1rAeQ4yBCmnevnAjpUlNE6C+CwHhLf80szQXpx4t+XAebN4WtZqfTjWhLCpHCJrtdbGdaLVKciX/d79QPpoDRYRn+9Tethw3Iq6sDA9IM1xZw7u52f4ZDEuQIbQUrzuYauhzJtZ+Ho57d1zsI9+fzVG6zh8X+8jI3RrmxYs5ozcNdB9dtP82XD8SIrxqyH1XB+fAW/alK7GM3bK72NZT8v8DjFg7CV3fej4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDYtMDVUMTE6MzY6MjcrMDM6MDCqSwhfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA2LTA1VDExOjM2OjI3KzAzOjAw2xaw4wAAAABJRU5ErkJggg=="></image></svg></span>';
+
+				$data['live_options']['svg'] = $svg;]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[function update()]]>
+			</search>
+			<add position="before">
+				<![CDATA[
+var svg_size = Math.round(parseFloat($(g_price_id).css('font-size').replace( /^\D+/g, '')) / 1.125);
+
+$('#live-options-svg').attr('width', svg_size);
+$('#live-options-svg').attr('height', svg_size);
+
+$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
+$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
+
+$('#live-options-image').attr('width', svg_size);
+$('#live-options-image').attr('height', svg_size);]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[beforeSend: function () {}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[beforeSend: function () { $('#live-options-svg-container').show(); }]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[complete: function () { tags_post_data = null; }]]>
+			</search>
+			<add position="replace">
+				<![CDATA[complete: function () { tags_post_data = null; $('#live-options-svg-container').hide(); }]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/*/template/product/product.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status %}{{ live_options.svg }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/*/template/common/header.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{% for style in styles %}]]>
+			</search>
+			<add position="before">
+				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_options_svg_animation.css" rel="stylesheet">]]>
+			</add>
+		</operation>
+	</file>
+</modification>
