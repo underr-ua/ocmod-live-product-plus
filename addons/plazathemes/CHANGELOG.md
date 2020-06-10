@@ -1,5 +1,9 @@
 # Change log
 
+## [1.2.1] - 2020.06.10:
+### Added
+- Compatibility with preloader addons
+
 ## [1.2.0] - 2020.05.19:
 ### Added
 - Displaying weight in QuickView with Live Options Ultimate
