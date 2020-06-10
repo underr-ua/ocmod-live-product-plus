@@ -3,6 +3,7 @@
 ## [2.5.2] - 2020.06.10:
 ### Fixed:
 - Option caching on some browsers (e.g. Firefox)
+- Compatibility with quantity buttons
 - Minor code refactoring
 
 ## [2.5.1] - 2020.05.20:
