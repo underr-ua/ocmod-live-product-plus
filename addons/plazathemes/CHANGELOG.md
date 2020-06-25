@@ -1,5 +1,9 @@
 # Change log
 
+## [1.2.2] - 2020.06.19:
+### Changed
+- Minor changes
+
 ## [1.2.1] - 2020.06.10:
 ### Added
 - Compatibility with preloader addons
