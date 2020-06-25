@@ -5,7 +5,7 @@ The Live Options+ extension is for Opencart 3 CMS. It allows to live update pric
 ## Features
 * Update prices depending on selected options and quantity
 * Change option prices with product discounts and special product prices
-* Hide option prefixes to show the full price
+* Hide option prefixes to show full option prices
 * Hide option prices
 * Hide ex-tax prices
 * Compatibility with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
@@ -19,7 +19,7 @@ The Live Options+ extension is for Opencart 3 CMS. It allows to live update pric
 ## Links
 * [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36005)
 * [Homepage](https://underr.space/en/notes/projects/project-0014.html)
-* [Github](https://git.io/JvBf1)
+* [Github](https://git.io/JfjUj)
 
 ## License
 [End User License Agreement](https://git.io/JvBf9)

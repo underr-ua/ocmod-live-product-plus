@@ -1,4 +1,15 @@
 # Change log
+## [2.5.4] - 2020.06.25:
+### Added:
+- Support of checkbox-options with prefix '='
+### Changed
+- Improved hiding of option prefixes and displaying of full option prices
+### Internal:
+- Code changes and improvements
+
+## [2.5.3] - 2020.06.16:
+### Added:
+- Ability to display full option prices for multioptional products in case, when prices are in one option type only
 
 ## [2.5.2] - 2020.06.10:
 ### Fixed:
