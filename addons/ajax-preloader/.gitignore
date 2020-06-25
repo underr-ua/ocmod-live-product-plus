@@ -12,4 +12,3 @@ makefile
 *.bb
 *.php_cs
 *.pwd
-*.zip
