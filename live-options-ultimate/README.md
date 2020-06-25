@@ -15,10 +15,10 @@ The "Live Options Ultimate" extension is for Opencart 3 CMS. It upgrades the "Li
 ## Links
 * [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460)
 * [Homepage](https://underr.space/en/notes/projects/project-0013.html)
-* [Github](https://git.io/JvBf1)
+* [Github](https://git.io/JfjUj)
 
 ## License
-[End User License Agreement](https://git.io/JfOQ2)
+[End User License Agreement](https://git.io/JfjTP)
 
 ## Related modules and extensions
 * [Live Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36005)

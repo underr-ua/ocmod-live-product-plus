@@ -1,5 +1,9 @@
 # Change log
 
+## [1.0.2] - 2020.06.25:
+### Internal
+- Compatibility with the last version of Live Options+
+
 ## [1.0.1] - 2020.05.08:
 ### Fixed
 - Loading language variables
