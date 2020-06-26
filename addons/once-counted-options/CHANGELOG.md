@@ -2,7 +2,7 @@
 
 ## [1.0.1] - 2020-06-23
 ### Internal
-- Compatibility with latest module version
+- Compatibility with the latest Live Options+ version
 
 ## [1.0.1] - 2020-03-12
 ### Internal
