@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 <modification>
 	<name>[underr] Compatibility Fix: Live Options+ > UltraStore Themplate</name>
 	<code>live-options-ultrastore</code>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -63,6 +63,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 			</add>
 		</operation>
 	</file>
+
 
 <!-- QiuickView -->
 
@@ -226,7 +227,6 @@ code package and also available on the project page: https://git.io/JfjTZ.
 		</operation>
 	</file>
 
-
 <!-- Quick Purchase -->
 	<file path="catalog/controller/extension/module/live_options.php" error="log" info="radio button tooltips">
 		<operation error="log">
@@ -249,20 +249,15 @@ code package and also available on the project page: https://git.io/JfjTZ.
 			}]]>
 			</add>
 		</operation>
+
 		<operation error="log">
 			<search>
-				<![CDATA[g_option_id = '#{$this->option_id}';]]>
+				<![CDATA[setGTags();]]>
 			</search>
 			<add position="after">
 				<![CDATA[
 	if ($(popup).length && $('body').hasClass('modal-open')) {
-		g_price_id = popup + ' ' + '#{$this->price_id}';
-		g_special_id = popup + ' ' + '#{$this->special_id}';
-		g_discount_id = popup + ' ' + '#{$this->discount_id}';
-		g_tax_id = popup + ' ' + '#{$this->tax_id}';
-		g_points_id = popup + ' ' + '#{$this->points_id}';
-		g_reward_id = popup + ' ' + '#{$this->reward_id}';
-		g_option_id = popup + ' ' + '#{$this->option_id}';
+		setGTags(popup);
 	}
 
 	$("#us-one-click-modal").off('hidden.bs.modal').on('hidden.bs.modal', function() {
@@ -271,27 +266,16 @@ code package and also available on the project page: https://git.io/JfjTZ.
 		}
 		$('.modal-holder').empty();
 
-		g_price_id = '#{$this->price_id}';
-		g_special_id = '#{$this->special_id}';
-		g_discount_id = '#{$this->discount_id}';
-		g_tax_id = '#{$this->tax_id}';
-		g_points_id = '#{$this->points_id}';
-		g_reward_id = '#{$this->reward_id}';
-		g_option_id = '#{$this->option_id}';
+		setGTags();
 	});
+
 
 	$("#us-one-click-modal").off('shown.bs.modal').on('shown.bs.modal', function() {
 		if (g_log) {
 			console.log('-- Live Options+ > Show modal');
 		}
 
-		g_price_id = popup + ' ' + '#{$this->price_id}';
-		g_special_id = popup + ' ' + '#{$this->special_id}';
-		g_discount_id = popup + ' ' + '#{$this->discount_id}';
-		g_tax_id = popup + ' ' + '#{$this->tax_id}';
-		g_points_id = popup + ' ' + '#{$this->points_id}';
-		g_reward_id = popup + ' ' + '#{$this->reward_id}';
-		g_option_id = popup + ' ' + '#{$this->option_id}';
+		setGTags(popup);
 	});]]>
 			</add>
 		</operation>
@@ -391,16 +375,72 @@ code package and also available on the project page: https://git.io/JfjTZ.
 		</operation>
 	</file>
 
+
 <!-- 
+	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{% if discounts %}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if discounts and not special %}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{{ discount.price }}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_options.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{{ reward }}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.reward_id }}" data-id="{{ live_options.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{{ tax }}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.tax_id }}" data-id="{{ live_options.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[{{ points }}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.points_id }}" data-id="{{ live_options.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+ -->
+
 	<file path="catalog/view/theme/oct_ultrastore/template/octemplates/module/oct_popup_purchase.twig" error="log">
 		<operation error="log">
 			<search>
 				<![CDATA[{% if oct_popup_purchase_data.mask is defined and oct_popup_purchase_data.mask is not empty %}]]>
 			</search>
 			<add position="before">
-				<![CDATA[{% if live_options.status %}<script type="text/javascript" src="{{ live_options.js }}"></script>{% endif %}]]>
+				<![CDATA[{% if live_options.status %}<script type="text/javascript">update();</script>{% endif %}]]>
 			</add>
 		</operation>
 	</file>
- -->
 </modification>
