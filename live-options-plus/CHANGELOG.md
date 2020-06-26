@@ -1,4 +1,8 @@
 # Change log
+## [2.5.5] - 2020.06.26:
+### Internal:
+- Code changes and improvements
+
 ## [2.5.4] - 2020.06.25:
 ### Added:
 - Support of checkbox-options with prefix '='
