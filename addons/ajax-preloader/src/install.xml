@@ -27,7 +27,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 		</operation>
 		<operation error="log">
 			<search>
-				<![CDATA[g_price_id = tag + '#{$this->price_id}';]]>
+				<![CDATA[g_special_id = tag + '#{$this->special_id}';]]>
 			</search>
 			<add position="after">
 				<![CDATA[
