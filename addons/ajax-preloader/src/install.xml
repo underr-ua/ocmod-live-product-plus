@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 <modification>
 	<name>[underr] Live Options+ > Ajax Preloader</name>
 	<code>live-options-ajax-preloader</code>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -27,20 +27,23 @@ code package and also available on the project page: https://git.io/JfjTv.
 		</operation>
 		<operation error="log">
 			<search>
-				<![CDATA[function update()]]>
+				<![CDATA[g_price_id = tag + '#{$this->price_id}';]]>
 			</search>
-			<add position="before">
+			<add position="after">
 				<![CDATA[
-var svg_size = Math.round(parseFloat($(g_price_id).css('font-size').replace( /^\D+/g, '')) / 1.125);
+	/// << Ajax Preloader
+	let price_tag = $(g_special_id).length ? g_special_id : g_price_id;
+	let svg_size = Math.round(parseFloat($(price_tag).css('font-size').replace( /^\D+/g, '')) / 1.125);
 
-$('#live-options-svg').attr('width', svg_size);
-$('#live-options-svg').attr('height', svg_size);
+	$('#live-options-svg').attr('width', svg_size);
+	$('#live-options-svg').attr('height', svg_size);
 
-$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
-$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
 
-$('#live-options-image').attr('width', svg_size);
-$('#live-options-image').attr('height', svg_size);]]>
+	$('#live-options-image').attr('width', svg_size);
+	$('#live-options-image').attr('height', svg_size);
+	/// Ajax Preloader >>]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -67,7 +70,15 @@ $('#live-options-image').attr('height', svg_size);]]>
 				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status %}{{ live_options.svg }}{% endif %}]]>
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status and not special %}{{ live_options.svg }}{% endif %}]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_options.status and special %}{{ live_options.svg }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
