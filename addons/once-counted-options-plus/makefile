@@ -1,4 +1,4 @@
-mod_name=once-counted-options-live
+mod_name=live-options-once-counted-options-plus
 bin_dir=bin
 img_dir=img
 src_dir=src
