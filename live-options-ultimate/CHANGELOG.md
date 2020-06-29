@@ -2,6 +2,7 @@
 
 ## [1.1.0] - 2020.06.29:
 ### Fixed
+- Redundant update of option text
 - SQL-queries caching
 
 ## [1.0.2] - 2020.06.26:
