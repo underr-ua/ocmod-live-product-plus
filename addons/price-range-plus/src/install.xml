@@ -28,8 +28,8 @@ code package and also available on the project page: https://git.io/JJv5J.
 						$extax_range = $this->model_extension_module_price_range->calculate((float)$product_info['price'], $product_options);
 
 						if ($this->product_total) {
-							$extax_range['min'] = $extax_range['min'] * $quantity;
-							$extax_range['max'] = $extax_range['max'] * $quantity;
+							$extax_range['min'] *= $quantity;
+							$extax_range['max'] *= $quantity;
 						}
 
 						$price_range = array(
@@ -47,8 +47,8 @@ code package and also available on the project page: https://git.io/JJv5J.
 							);
 
 							if ($this->product_total) {
-								$extax_range['min'] = $extax_range['min'] * $quantity;
-								$extax_range['max'] = $extax_range['max'] * $quantity;
+								$extax_range['min'] *= $quantity;
+								$extax_range['max'] *= $quantity;
 							}
 
 							$special_range = array(
@@ -64,15 +64,15 @@ code package and also available on the project page: https://git.io/JJv5J.
 						}
 
 						if ($discounts && !(float)$product_info['special']) {
-							$has_discount = false;
+							$json['product']['discounts'] = array();
 
-							foreach ($discounts as &$discount) {
+							foreach ($discounts as $discount) {
 								if ($quantity >= $discount['quantity']) {
 									$extax_range = $this->model_extension_module_price_range->calculate((float)$discount['price'], $product_options);
 
 									if ($this->product_total) {
-										$extax_range['min'] = $extax_range['min'] * $quantity;
-										$extax_range['max'] = $extax_range['max'] * $quantity;
+										$extax_range['min'] *= $quantity;
+										$extax_range['max'] *= $quantity;
 									}
 
 									$price_range = array(
@@ -88,20 +88,14 @@ code package and also available on the project page: https://git.io/JJv5J.
 								}
 
 								$discount_range = $this->model_extension_module_price_range->calculate(
-									$discount['price'],
-									$product_options,
-									$this->option_ratio ? $discount['price'] / $product_info['price'] : 1
+									$discount['price'], $product_options, $this->option_ratio ? $discount['price'] / $product_info['price'] : 1
 								);
 
 								$discount_range['min'] = $this->tax->calculate($discount_range['min'], $product_info['tax_class_id'], $config_tax);
 								$discount_range['max'] = $this->tax->calculate($discount_range['max'], $product_info['tax_class_id'], $config_tax);
 
-								$discount['price'] = $this->model_extension_module_price_range->format($discount_range);
+								$json['product']['discounts'][$discount['quantity']] = $this->model_extension_module_price_range->format($discount_range);
 							}
-
-							unset($discount);
-
-							$json['product']['discounts'] = $discounts;
 						}
 					} else {
 						$price_range = $this->model_extension_module_price_range->calculate(
@@ -122,7 +116,9 @@ code package and also available on the project page: https://git.io/JJv5J.
 						}
 
 						if ($discounts && !(float)$product_info['special']) {
-							foreach ($discounts as &$discount) {
+							$json['product']['discounts'] = array();
+
+							foreach ($discounts as $discount) {
 								if ($quantity >= $discount['quantity']) {
 									$price_range = $this->model_extension_module_price_range->calculate((float)$discount['price'], $product_options);
 
@@ -135,17 +131,11 @@ code package and also available on the project page: https://git.io/JJv5J.
 								}
 
 								$discount_range = $this->model_extension_module_price_range->calculate(
-									$discount['price'],
-									$product_options,
-									$this->option_ratio ? $discount['price'] / $product_info['price'] : 1
+									$discount['price'], $product_options, $this->option_ratio ? $discount['price'] / $product_info['price'] : 1
 								);
 
-								$discount['price'] = $this->model_extension_module_price_range->format($discount_range);
+								$json['product']['discounts'][$discount['quantity']] = $this->model_extension_module_price_range->format($discount_range);
 							}
-
-							unset($discount);
-
-							$json['product']['discounts'] = $discounts;
 						}
 					}
 				}
