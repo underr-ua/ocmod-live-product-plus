@@ -7,7 +7,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 -->
 
 <modification>
-	<name>[underr] Compatibility Addon: Price Range+ > Live Options+</name>
+	<name>[underr] Compatibility Addon:  Live Options+ > Price Range+</name>
 	<code>live-options-price-range-plus</code>
 	<version>1.0.4</version>
 	<author>Andrii Burkatskyi aka underr</author>
@@ -16,7 +16,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 	<file path="catalog/controller/extension/module/live_options.php" error="log">
 		<operation error="log">
 			<search><![CDATA[$json['success'] = true;]]></search>
-			<add position="before"><![CDATA[			/// << Price Range+ Live
+			<add position="before"><![CDATA[			/// << Live Options+ > Price Range+
 			if ($this->config->get('module_price_range_status')) {
 				$this->load->model('extension/module/price_range');
 				$price_range_settings = $this->model_extension_module_price_range->getStoreSettings();
@@ -150,7 +150,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 					}
 				}
 			}
-			/// Price Range+ Live >>]]>
+			/// Live Options+ > Price Range+ >>]]>
 			</add>
 		</operation>
 	</file>
