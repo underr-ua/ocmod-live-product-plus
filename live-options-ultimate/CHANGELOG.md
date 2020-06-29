@@ -1,5 +1,9 @@
 # Change log
 
+## [1.1.0] - 2020.06.29:
+### Fixed
+- SQL-queries caching
+
 ## [1.0.2] - 2020.06.26:
 ### Internal
 - Compatibility with the latest version of Live Options+
