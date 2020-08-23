@@ -1,4 +1,8 @@
 # Change log
+## [2.5.6] - 2020.08.23:
+### Changed:
+- Minor update of the compatibility with the Journal 3 template
+
 ## [2.5.5] - 2020.06.26:
 ### Internal:
 - Code changes and improvements
