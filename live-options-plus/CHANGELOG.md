@@ -1,4 +1,13 @@
 # Change log
+## [2.6.0] - 2020.08.31:
+### Added:
+- Custom message for product without the base price
+- Definition of id of the html-container on the product page that contains product data
+### Fixed:
+- Hide extax prices on some pages
+### Internal
+- Renamed some variables
+
 ## [2.5.6] - 2020.08.23:
 ### Changed:
 - Minor update of the compatibility with the Journal 3 template

@@ -10,6 +10,7 @@ The Live Options+ extension is for Opencart 3 CMS. It allows to live update pric
 * Hide ex-tax prices
 * Compatibility with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
 * Custom text for free product options ("Free", "Gift", etc)
+* Custom text for products without a base price
 * OCMOD/Event Systems
 
 ## Live demo
