@@ -16,17 +16,17 @@ code package and also available on the project page: https://git.io/JfjTG.
 	<file path="admin/controller/extension/module/live_options.php" error="log" info="preorder">
 		<operation error="log">
 			<search>
-				<![CDATA[array('free');]]>
+				<![CDATA['zerobaseprice']]>
 			</search>
 			<add position="replace">
-				<![CDATA[array('free', 'preorder');]]>
+				<![CDATA['zerobaseprice', 'preorder');]]>
 			</add>
 		</operation>
 	</file>
 	<file path="admin/language/en-gb/extension/module/live_options.php" error="log" info="preorder">
 		<operation error="log">
 			<search>
-				<![CDATA[entry_text_free]]>
+				<![CDATA[entry_text_zerobaseprice]]>
 			</search>
 			<add position="after">
 				<![CDATA[$_['entry_text_preorder'] = 'Preorder';]]>
@@ -36,7 +36,7 @@ code package and also available on the project page: https://git.io/JfjTG.
 	<file path="admin/language/ua-uk/extension/module/live_options.php" error="log" info="preorder">
 		<operation error="log">
 			<search>
-				<![CDATA[entry_text_free]]>
+				<![CDATA[entry_text_zerobaseprice]]>
 			</search>
 			<add position="after">
 				<![CDATA[$_['entry_text_preorder'] = 'Передзамовлення';]]>
@@ -46,7 +46,7 @@ code package and also available on the project page: https://git.io/JfjTG.
 	<file path="admin/language/ru-ru/extension/module/live_options.php" error="log" info="preorder">
 		<operation error="log">
 			<search>
-				<![CDATA[entry_text_free]]>
+				<![CDATA[entry_text_zerobaseprice]]>
 			</search>
 			<add position="after">
 				<![CDATA[$_['entry_text_preorder'] = 'Предзаказ';]]>
