@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 <modification>
 	<name>[underr] Live Options+ > Ajax Preloader</name>
 	<code>live-options-ajax-preloader</code>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -27,7 +27,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 		</operation>
 		<operation error="log">
 			<search>
-				<![CDATA[g_special_id = tag + '#{$this->special_id}';]]>
+				<![CDATA[g_special_id = g_content_id + '#{$this->special_id}';]]>
 			</search>
 			<add position="after">
 				<![CDATA[
@@ -94,7 +94,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 		</operation>
 	</file>
 
-	<file path="catalog/view/theme/journal3/template/common/header.twig" error="log">
+	<file path="catalog/view/theme/journal3/template/common/header.twig" error="log" info="Only for Journal3">
 		<operation error="log">
 			<search>
 				<![CDATA[{% for style in j3.document.getStyles(styles) %}]]>
