@@ -2,7 +2,7 @@
 
 The "Live Options Ultimate" extension is for Opencart 3 CMS. It upgrades the "Live Options+" module and adds ability to show total weight, points, weight and availability of product options, caches sql-queries, etc.
 
-## Features (excluding Live Options+ features)
+## Added features
 * Total weight of product and selected options
 * Weight, points and availability of each product options
 * SQL-queries caching
