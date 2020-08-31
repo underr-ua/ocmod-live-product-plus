@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JfjTT.
 <modification>
 	<name>[underr] Live Options+ > Fake Preloader</name>
 	<code>live-options-fake-preloader</code>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -28,23 +28,25 @@ code package and also available on the project page: https://git.io/JfjTT.
 
 		<operation error="log">
 			<search>
-				<![CDATA[function update()]]>
+				<![CDATA[g_special_id = g_content_id + '#{$this->special_id}';]]>
 			</search>
-			<add position="before">
+			<add position="after">
 				<![CDATA[
-var svg_size = Math.round(parseFloat($(g_price_id).css('font-size').replace( /^\D+/g, '')) / 1.125);
+	/// << Fake Preloader
+	let price_tag = $(g_special_id).length ? g_special_id : g_price_id;
+	let svg_size = Math.round(parseFloat($(price_tag).css('font-size').replace( /^\D+/g, '')) / 1.125);
 
-$('#live-options-svg').attr('width', svg_size);
-$('#live-options-svg').attr('height', svg_size);
+	$('#live-options-svg').attr('width', svg_size);
+	$('#live-options-svg').attr('height', svg_size);
 
-$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
-$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
 
-$('#live-options-image').attr('width', svg_size);
-$('#live-options-image').attr('height', svg_size);]]>
+	$('#live-options-image').attr('width', svg_size);
+	$('#live-options-image').attr('height', svg_size);
+	/// Fake Preloader >>]]>
 			</add>
 		</operation>
-
 		<operation error="log">
 			<search>
 				<![CDATA[showSummary(json);]]>
@@ -74,12 +76,20 @@ $('#live-options-image').attr('height', svg_size);]]>
 	</file>
 
 	<file path="catalog/view/theme/*/template/product/product.twig" error="log">
-		<operation error="log" info="preloader support">
+		<operation error="log">
 			<search>
 				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status and live_options.svg %}{{ live_options.svg }}{% endif %}]]>
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status and not special %}{{ live_options.svg }}{% endif %}]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_options.status and special %}{{ live_options.svg }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -95,4 +105,14 @@ $('#live-options-image').attr('height', svg_size);]]>
 		</operation>
 	</file>
 
+	<file path="catalog/view/theme/journal3/template/common/header.twig" error="log" info="Only for Journal3">
+		<operation error="log">
+			<search>
+				<![CDATA[{% for style in j3.document.getStyles(styles) %}]]>
+			</search>
+			<add position="before">
+				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_options_svg_animation.css" rel="stylesheet">]]>
+			</add>
+		</operation>
+	</file>
 </modification>
