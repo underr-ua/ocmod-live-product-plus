@@ -1,6 +1,6 @@
 # Change log
 
-## [1.0.1] - 2020.08.31:
+## [1.0.2] - 2020.08.31:
 ### Internal
 - Compatibility with the Live Options+ module v2.6.0
 
