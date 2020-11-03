@@ -7,9 +7,9 @@ code package and also available on the project page: https://git.io/JfjTL.
 -->
 
 <modification>
-	<name>[underr] Live Product+ > Once Counted Options+</name>
-	<code>live-product-once-counted-options</code>
-	<version>1.0.2</version>
+	<name>[underr] Live Product+ &lt; Once Counted Options+</name>
+	<code>live-product--once-counted-options</code>
+	<version>1.1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 

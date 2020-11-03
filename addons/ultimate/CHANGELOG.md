@@ -1,5 +1,9 @@
 # Change log
 
+## [1.3.0] - 2020.11.03:
+### Internal
+- Compatibility with the Live Product+ module v3.0.0
+
 ## [1.2.0] - 2020.08.31:
 ### Internal
 - Compatibility with the Live Options+ module v2.6.0

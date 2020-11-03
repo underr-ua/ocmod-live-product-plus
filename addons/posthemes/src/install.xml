@@ -7,9 +7,9 @@ code package and also available on the project page: https://git.io/JfjTO.
 -->
 
 <modification>
-	<name>[underr] Compatibility Fix: Live Product+ > posthemes </name>
-	<code>live-product-posthemes</code>
-	<version>1.1.2</version>
+	<name>[underr] Compatibility: Live Product+ > posthemes </name>
+	<code>live-product--posthemes</code>
+	<version>1.2.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 

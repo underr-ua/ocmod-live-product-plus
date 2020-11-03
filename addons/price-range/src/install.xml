@@ -7,9 +7,9 @@ code package and also available on the project page: https://git.io/JJvbv.
 -->
 
 <modification>
-	<name>[underr] Compatibility Fix: Live Product+ > Price Range</name>
-	<code>live-product-price-range</code>
-	<version>1.0.0</version>
+	<name>[underr] Live Product+ &lt; Price Range</name>
+	<code>live-product--price-range</code>
+	<version>1.1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
