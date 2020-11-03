@@ -1,3 +1,15 @@
+# Allow
+!bin/*.fcl.g
+!EULA.txt
+!LICENSE.txt
+!makefile
+!*.md
+
+# Ignore
+img
+makefile
 *.code-workspace
+*.bb
 *.php_cs
-live-options-pro/
+*.pwd
+*.zip

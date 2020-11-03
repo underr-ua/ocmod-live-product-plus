@@ -8,7 +8,7 @@
     100% {  transform: rotate(359deg); }
 }
 
-#live-options-svg {
+#live-product-svg {
     -webkit-animation: spin 3s linear infinite;
             animation: spin 3s linear infinite;
 }

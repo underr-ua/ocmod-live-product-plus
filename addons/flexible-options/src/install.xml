@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Product+" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JTFp8.-->
+
+<modification>
+	<name>[underr] Live Product+ &lt; Flexible Options+</name>
+	<code>live-product--flexible-options</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JfjUj</link>
+	<description>Live Product+ add-on to acompatibility with Flexible Options+ module</description>
+
+	<file path="catalog/controller/extension/module/live_product.php" error="log">
+		<operation error="log">
+			<search info="">
+				<![CDATA[foreach ($this->config->get('module_live_product')['other'] as $key => $value) {]]>
+			</search>
+			<add position="before">
+				<![CDATA[			/// Flexible Options+
+			if ($this->config->get('module_flexible_options_status')) {
+				$this->option_ratio = TRUE;
+
+				if (isset($this->config->get('module_flexible_options')['text'][$this->config->get('config_language_id')])) {
+					foreach ($this->config->get('module_flexible_options')['text'][$this->config->get('config_language_id')] as $key => $value) {
+						$this->{'text_' . $key} = $value;
+					}
+				}
+			} else {
+				$this->option_ratio = FALSE;
+			}]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search info="">
+				<![CDATA[$price = (float)$product_info['price'];]]>
+			</search>
+			<add position="after">
+				<![CDATA[			$co = 1;  /// Flexible Options+]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search info="">
+				<![CDATA[$special = (float)$product_info['special'];]]>
+			</search>
+			<add position="after">
+				<![CDATA[				$co = $this->option_ratio ? $special / $price : 1;  /// Flexible Options+]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search info="">
+				<![CDATA['quantity' => (int)$product_discount['quantity'],]]>
+			</search>
+			<add position="after">
+				<![CDATA[						'co'       => $this->option_ratio ? $product_discount['price'] / $product_info['price'] : 1,  /// Flexible Options+]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search info="">
+				<![CDATA[$discount_qty = $product_discount['quantity'];]]>
+			</search>
+			<add position="after">
+				<![CDATA[						$co = $this->option_ratio ? $price / $product_info['price'] : 1;  /// Flexible Options+]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[if ($option_price) {]]>
+			</search>
+			<add position="after">
+				<![CDATA[								$option_price *= $discount_qty ? $co : 1;  /// Flexible Options+]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[if ($option_price && $option_price !== $this->text_free_option) {]]>
+			</search>
+			<add position="before">
+				<![CDATA[							$option_oldprice = false;  /// Flexible Options+]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[$option_tax = $config_tax ? 'P' : false;]]>
+			</search>
+			<add position="after">
+				<![CDATA[								/// Flexible Options+
+								if (!empty($product_option_value['oldprice'])) {
+									$option_oldprice = $this->currency->format(
+										$this->tax->calculate($option_price / $co, $product_info['tax_class_id'], $option_tax), $this->session->data['currency']
+									);
+								}]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[$product_option_value_data[] = array(]]>
+			</search>
+			<add position="before">
+				<![CDATA[
+							/// Flexible Options+
+							if ($option_type === 'select' && !$this->option_hide_price && $option_price && $option_oldprice) {
+								$product_option_value_data[] = array(
+									'name'                    => $product_option_value['name'],
+									'option_value_id'         => $product_option_value['option_value_id'],
+									'points'                  => $option_points,
+									'points_prefix'           => $points_prefix,
+									'price'                   => $option_oldprice . ' - ' .$this->text_oldprice,
+									'price_prefix'            => $price_prefix,
+									'product_option_value_id' => $product_option_value['product_option_value_id'] . '-disabled',
+								);
+
+								$option_price = $option_price .  ' - ' . $this->text_newprice;
+							}
+				]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price,]]>
+			</search>
+			<add position="after">
+				<![CDATA[								'oldprice'                => $option_oldprice, /// Flexible Options+]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price]]>
+			</search>
+			<add position="replace">
+				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price . (!$option_oldprice ? '' : ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>')]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[$option_price_total, $option_price, $price_prefix]]>
+			</search>
+			<add position="replace">
+				<![CDATA[$option_price_total, $option_price / $co, $price_prefix]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[$discounted_price_total[$discount['quantity']], $option_price, $price_prefix]]>
+			</search>
+			<add position="replace">
+				<![CDATA[$discounted_price_total[$discount['quantity']], $option_price * $discount['co'], $price_prefix]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search info="">
+				<![CDATA[$option_sale_total, $option_price, $price_prefix]]>
+			</search>
+			<add position="replace">
+				<![CDATA[$option_sale_total, $discount_qty ? $option_price * $co : $option_price, $price_prefix]]>
+			</add>
+		</operation>
+	</file>
+</modification>

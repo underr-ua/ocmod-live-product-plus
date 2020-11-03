@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Product+" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JfjTL.
+-->
+
+<modification>
+	<name>[underr] Live Product+ > Once Counted Options+</name>
+	<code>live-product-once-counted-options</code>
+	<version>1.0.2</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JfjUj</link>
+
+	<file path="catalog/controller/extension/module/live_product.php" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[class ControllerExtensionModuleLiveProduct extends Controller {]]>
+			</search>
+			<add position="after">
+				<![CDATA[	private $once_count_status = false; /// Once Counted Options Live]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[$product_options = $this->model_catalog_product->getProductOptions($product_info['product_id']);]]>
+			</search>
+			<add position="after">
+				<![CDATA[			/// << Once Counted Options Live
+			if ($this->config->get('module_once_counted_options_status') &&
+				isset($this->config->get('module_once_counted_options')['store'][$this->config->get('config_store_id')])
+			) {
+				$this->once_count_status = $this->config->get('module_once_counted_options')['store'][$this->config->get('config_store_id')];
+			}
+			/// Once Counted Options Live >>]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[foreach ($product_options as $product_option) {]]>
+			</search>
+			<add position="after">
+				<![CDATA[					/// << Once Counted Options Live
+					if ($this->once_count_status && isset($product_option['count_once'])) {
+						$is_counted_once = $product_option['count_once'];
+					} else {
+						$is_counted_once = false;
+					}
+					/// Once Counted Options Live >>]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[if ($this->product_total && $this->option_total) {]]>
+			</search>
+			<add position="replace">
+				<![CDATA[if ($this->product_total && $this->option_total && !$is_counted_once) {  /// Once Counted Options Live >>]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search>
+				<![CDATA[if (is_array($post_option))]]>
+			</search>
+			<add position="before">
+				<![CDATA[								/// << Once Counted Options Live
+								if ($is_counted_once) {
+									$option_price /= $quantity;
+									$option_points = round($option_points / $quantity);
+								}
+								/// Once Counted Options Live >>]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search>
+				<![CDATA['required'             => $product_option['required'],]]>
+			</search>
+			<add position="after">
+				<![CDATA[						'count_once'           => isset($product_option['count_once']) ? $product_option['count_once'] : false, /// Once Counted Options+ compatibility]]>
+			</add>
+		</operation>
+	</file>
+</modification>

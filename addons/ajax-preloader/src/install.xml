@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file is part of "Live Options+" project and subject to the terms
+This file is part of "Live Product+" project and subject to the terms
 and conditions defined in file "LICENSE.txt", which is part of this source
 code package and also available on the project page: https://git.io/JfjTv.
 -->
 
 <modification>
-	<name>[underr] Live Options+ > Ajax Preloader</name>
-	<code>live-options-ajax-preloader</code>
+	<name>[underr] Live Product+ &lt; Ajax Preloader</name>
+	<code>live-product-ajax-preloader</code>
 	<version>1.0.3</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
-	<file path="catalog/controller/extension/module/live_options.php" error="log">
+	<file path="catalog/controller/extension/module/live_product.php" error="log">
 		<operation error="log">
 			<search>
-				<![CDATA[$data['live_options'] = array();]]>
+				<![CDATA[$data['live_product'] = array();]]>
 			</search>
 			<add position="after">
 				<![CDATA[
-				$svg = '<span id="live-options-svg-container" style="margin-left: 5px; display: none;"><svg id="live-options-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve"><image id="live-options-image" x="0" y="0" xlink:href="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAk1BMVEX////8/vzc4uSktrx0jpxManwsUmSMoqyMnqzk6uw8WmwUPlQEMkSEmqQUOkw8Xmx0ipQcQlQEMkz09vQMOkzM2tw8YnTU2ty0vsQMNkz0+vxcdoQsTmRshpTM1tz8+vz08vTEztS8xszc5uREZnTU3uRUcnyUpqycrrQ0VmQkTlwkSlx0ipxceozs8vRUdoS0wszXfHE2AAAAAWJLR0QMgbNRYwAAAAd0SU1FB+QGBQskG45HMQ0AAAJwSURBVEjHpVZrl5pADI2wKC8Rhm2RggwIVal2u///1zXJgA/EmT1nwwd53Dt5JwJMZGHZb85yBeAunTfbWoBevJUfhChrgDX9RpuVp4PHiQj5YgL+ChEG8StK6r6LUOHDgaAeIzedw//YMFzBlEkiHE74mT3jt4HIb4jRpPE52k7xvwrykT+WO7uSAHVl78qRIYonq1KHP+ZFU99eyqbI2UZngt+3eKKDn7pGPn6RTYcHOXhIu7/zNyh/o45DdJTwJPIUHRCflcHV8xTjs0RGPRMLkgrxFrqzGe1yybGy1VUA4UW+HvL7zn756Wt86nNEIpXzWMX7pNNwUtGNWUHCsXakjiA7ZiSk4si3UQVaySKGHbH+2TxRSD0BCob5EixF3Rvw0ChDLLDZ/742EWRPDGHDjkO0M+GBgSECO65/20xgU0QHf9ikzEyouLfO0J9JjC5gpSEsKUsz8NvitZ7Veqa0oUgGenD+qtOZUE533PpfCyv1MBY3MWMzQWX4AjYXep+a8HXPibNV8YWiMREa1XMWSNV9hYnwl9sMyxtWXIWRIU7UQHi5lIiEbdK36EK1qJoCsZq5piFAjAs/eLlia4yqlEH5sFpcjqyjm0sH1rAeQ4yBCmnevnAjpUlNE6C+CwHhLf80szQXpx4t+XAebN4WtZqfTjWhLCpHCJrtdbGdaLVKciX/d79QPpoDRYRn+9Tethw3Iq6sDA9IM1xZw7u52f4ZDEuQIbQUrzuYauhzJtZ+Ho57d1zsI9+fzVG6zh8X+8jI3RrmxYs5ozcNdB9dtP82XD8SIrxqyH1XB+fAW/alK7GM3bK72NZT8v8DjFg7CV3fej4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDYtMDVUMTE6MzY6MjcrMDM6MDCqSwhfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA2LTA1VDExOjM2OjI3KzAzOjAw2xaw4wAAAABJRU5ErkJggg=="></image></svg></span>';
+				$svg = '<span id="live-product-svg-container" style="margin-left: 5px; display: none;"><svg id="live-product-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve"><image id="live-product-image" x="0" y="0" xlink:href="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAk1BMVEX////8/vzc4uSktrx0jpxManwsUmSMoqyMnqzk6uw8WmwUPlQEMkSEmqQUOkw8Xmx0ipQcQlQEMkz09vQMOkzM2tw8YnTU2ty0vsQMNkz0+vxcdoQsTmRshpTM1tz8+vz08vTEztS8xszc5uREZnTU3uRUcnyUpqycrrQ0VmQkTlwkSlx0ipxceozs8vRUdoS0wszXfHE2AAAAAWJLR0QMgbNRYwAAAAd0SU1FB+QGBQskG45HMQ0AAAJwSURBVEjHpVZrl5pADI2wKC8Rhm2RggwIVal2u///1zXJgA/EmT1nwwd53Dt5JwJMZGHZb85yBeAunTfbWoBevJUfhChrgDX9RpuVp4PHiQj5YgL+ChEG8StK6r6LUOHDgaAeIzedw//YMFzBlEkiHE74mT3jt4HIb4jRpPE52k7xvwrykT+WO7uSAHVl78qRIYonq1KHP+ZFU99eyqbI2UZngt+3eKKDn7pGPn6RTYcHOXhIu7/zNyh/o45DdJTwJPIUHRCflcHV8xTjs0RGPRMLkgrxFrqzGe1yybGy1VUA4UW+HvL7zn756Wt86nNEIpXzWMX7pNNwUtGNWUHCsXakjiA7ZiSk4si3UQVaySKGHbH+2TxRSD0BCob5EixF3Rvw0ChDLLDZ/742EWRPDGHDjkO0M+GBgSECO65/20xgU0QHf9ikzEyouLfO0J9JjC5gpSEsKUsz8NvitZ7Veqa0oUgGenD+qtOZUE533PpfCyv1MBY3MWMzQWX4AjYXep+a8HXPibNV8YWiMREa1XMWSNV9hYnwl9sMyxtWXIWRIU7UQHi5lIiEbdK36EK1qJoCsZq5piFAjAs/eLlia4yqlEH5sFpcjqyjm0sH1rAeQ4yBCmnevnAjpUlNE6C+CwHhLf80szQXpx4t+XAebN4WtZqfTjWhLCpHCJrtdbGdaLVKciX/d79QPpoDRYRn+9Tethw3Iq6sDA9IM1xZw7u52f4ZDEuQIbQUrzuYauhzJtZ+Ho57d1zsI9+fzVG6zh8X+8jI3RrmxYs5ozcNdB9dtP82XD8SIrxqyH1XB+fAW/alK7GM3bK72NZT8v8DjFg7CV3fej4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDYtMDVUMTE6MzY6MjcrMDM6MDCqSwhfAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA2LTA1VDExOjM2OjI3KzAzOjAw2xaw4wAAAABJRU5ErkJggg=="></image></svg></span>';
 
-				$data['live_options']['svg'] = $svg;]]>
+				$data['live_product']['svg'] = $svg;]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -35,14 +35,14 @@ code package and also available on the project page: https://git.io/JfjTv.
 	let price_tag = $(g_special_id).length ? g_special_id : g_price_id;
 	let svg_size = Math.round(parseFloat($(price_tag).css('font-size').replace( /^\D+/g, '')) / 1.125);
 
-	$('#live-options-svg').attr('width', svg_size);
-	$('#live-options-svg').attr('height', svg_size);
+	$('#live-product-svg').attr('width', svg_size);
+	$('#live-product-svg').attr('height', svg_size);
 
-	$('#live-options-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
-	$('#live-options-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-product-svg').attr('viewBox', '0 0 ' + svg_size + ' ' + svg_size);
+	$('#live-product-svg').attr('enable-background', '0 0 ' + svg_size + ' ' + svg_size);
 
-	$('#live-options-image').attr('width', svg_size);
-	$('#live-options-image').attr('height', svg_size);
+	$('#live-product-image').attr('width', svg_size);
+	$('#live-product-image').attr('height', svg_size);
 	/// Ajax Preloader >>]]>
 			</add>
 		</operation>
@@ -51,7 +51,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 				<![CDATA[beforeSend: function () {}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[beforeSend: function () { $('#live-options-svg-container').show(); }]]>
+				<![CDATA[beforeSend: function () { $('#live-product-svg-container').show(); }]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -59,7 +59,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 				<![CDATA[complete: function () { tags_post_data = null; }]]>
 			</search>
 			<add position="replace">
-				<![CDATA[complete: function () { tags_post_data = null; $('#live-options-svg-container').hide(); }]]>
+				<![CDATA[complete: function () { tags_post_data = null; $('#live-product-svg-container').hide(); }]]>
 			</add>
 		</operation>
 	</file>
@@ -67,18 +67,18 @@ code package and also available on the project page: https://git.io/JfjTv.
 	<file path="catalog/view/theme/*/template/product/product.twig" error="log">
 		<operation error="log">
 			<search>
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_options.status and not special %}{{ live_options.svg }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and not special %}{{ live_product.svg }}{% endif %}]]>
 			</add>
 		</operation>
 		<operation error="log">
 			<search>
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_options.status and special %}{{ live_options.svg }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_product.status and special %}{{ live_product.svg }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -89,7 +89,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 				<![CDATA[{% for style in styles %}]]>
 			</search>
 			<add position="before">
-				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_options_svg_animation.css" rel="stylesheet">]]>
+				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_product_svg_animation.css" rel="stylesheet">]]>
 			</add>
 		</operation>
 	</file>
@@ -100,7 +100,7 @@ code package and also available on the project page: https://git.io/JfjTv.
 				<![CDATA[{% for style in j3.document.getStyles(styles) %}]]>
 			</search>
 			<add position="before">
-				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_options_svg_animation.css" rel="stylesheet">]]>
+				<![CDATA[<link href="catalog/view/theme/default/stylesheet/live_product_svg_animation.css" rel="stylesheet">]]>
 			</add>
 		</operation>
 	</file>

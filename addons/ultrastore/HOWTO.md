@@ -2,14 +2,14 @@
 
 ## How to install
 * Start by making a backup (both DB and store files)!!!
-* Admin > Extensions > Installer > [Upload]: live-options-ultrastore.ocmod.zip
+* Admin > Extensions > Installer > [Upload]: live-product-ultrastore.ocmod.zip
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Dashboard > [Developer Settings] > [Refresh]
 
 
 ## How to uninstall
 * Start by making a backup (both DB and store files)!!!
-* Admin > Extensions > Installer > Install History > live-options-ultrastore.zip > [Uninstall]
+* Admin > Extensions > Installer > Install History > live-product-ultrastore.zip > [Uninstall]
 * Admin > Extensions > Modifications > [Refresh]
 * Admin > Dashboard > [Developer Settings] > [Refresh]
 

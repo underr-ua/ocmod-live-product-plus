@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file is part of "Live Options+" project and subject to the terms
+This file is part of "Live Product+" project and subject to the terms
 and conditions defined in file "LICENSE.txt", which is part of this source
 code package and also available on the project page: https://git.io/JfjTZ.
 -->
 
 <modification>
-	<name>[underr] Compatibility Fix: Live Options+ > UltraStore Themplate</name>
-	<code>live-options-ultrastore</code>
+	<name>[underr] Compatibility Fix: Live Product+ > UltraStore Themplate</name>
+	<code>live-product-ultrastore</code>
 	<version>1.0.1</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
-	<file path="admin/controller/extension/module/live_options.php" error="log" info="add event for QV">
+	<file path="admin/controller/extension/module/live_product.php" error="log" info="add event for QV">
 		<operation error="log">
 			<search>
-				<![CDATA[$this->model_setting_event->addEvent('live_options_add_data']]>
+				<![CDATA[$this->model_setting_event->addEvent('live_product_add_data']]>
 			</search>
 			<add position="after">
 				<![CDATA[
-		$this->model_setting_event->addEvent('live_options_add_data', 'catalog/view/octemplates/module/oct_popup_purchase/before', 'extension/module/live_options/addModuleData');
-		$this->model_setting_event->addEvent('live_options_add_data', 'catalog/view/octemplates/module/oct_popup_view/before', 'extension/module/live_options/addModuleData');
-		$this->model_setting_event->addEvent('live_options_hide_extax', 'catalog/view/octemplates/module/*/before', 'extension/module/live_options/hideExTax');]]>
+		$this->model_setting_event->addEvent('live_product_add_data', 'catalog/view/octemplates/module/oct_popup_purchase/before', 'extension/module/live_product/addModuleData');
+		$this->model_setting_event->addEvent('live_product_add_data', 'catalog/view/octemplates/module/oct_popup_view/before', 'extension/module/live_product/addModuleData');
+		$this->model_setting_event->addEvent('live_product_hide_extax', 'catalog/view/octemplates/module/*/before', 'extension/module/live_product/hideExTax');]]>
 			</add>
 		</operation>
 	</file>
 
-	<file path="catalog/controller/extension/module/live_options.php" error="log" info="radio button tooltips">
+	<file path="catalog/controller/extension/module/live_product.php" error="log" info="radio button tooltips">
 		<operation error="log">
 			<search>
 				<![CDATA[showEl(id, text);]]>
@@ -59,7 +59,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{% if option_value.price %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}id="{{ live_options.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
+				<![CDATA[{% if live_product.status %}id="{{ live_product.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -84,7 +84,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[<option value="{{ option_value.product_option_value_id }}">]]>
 			</search>
 			<add position="replace">
-				<![CDATA[<option {% if live_options.status %}id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% endif %} value="{{ option_value.product_option_value_id }}">]]>
+				<![CDATA[<option {% if live_product.status %}id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% endif %} value="{{ option_value.product_option_value_id }}">]]>
 			</add>
 		</operation>
 	</file>
@@ -115,14 +115,14 @@ code package and also available on the project page: https://git.io/JfjTZ.
 			</search>
 			<add position="replace">
 				<![CDATA[
-				  {% if live_options.status %}
-                    <span id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
+				  {% if live_product.status %}
+                    <span id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
                   {% else %}
                     ({{ option_value.price_prefix }}{{ option_value.price }})
                   {% endif %}
                 {% else %}
-                  {% if live_options.status %}
-                    <span id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
+                  {% if live_product.status %}
+                    <span id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
                   {% endif %}]]>
 			</add>
 		</operation>
@@ -134,7 +134,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{% if option_value.price %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}id="{{ live_options.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
+				<![CDATA[{% if live_product.status %}id="{{ live_product.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -145,7 +145,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ price }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -156,7 +156,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ special }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -178,7 +178,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ discount.price }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_options.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_product.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -189,7 +189,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ reward }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.reward_id }}" data-id="{{ live_options.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.reward_id }}" data-id="{{ live_product.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -200,7 +200,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ tax }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.tax_id }}" data-id="{{ live_options.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.tax_id }}" data-id="{{ live_product.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -211,7 +211,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ points }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.points_id }}" data-id="{{ live_options.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.points_id }}" data-id="{{ live_product.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -222,13 +222,13 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[<script src="catalog/view/theme/oct_ultrastore/js/owl.carousel.min.js"></script>]]>
 			</search>
 			<add position="before">
-				<![CDATA[{% if live_options.status %}<script type="text/javascript" src="{{ live_options.js }}"></script>{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<script type="text/javascript" src="{{ live_product.js }}"></script>{% endif %}]]>
 			</add>
 		</operation>
 	</file>
 
 <!-- Quick Purchase -->
-	<file path="catalog/controller/extension/module/live_options.php" error="log" info="radio button tooltips">
+	<file path="catalog/controller/extension/module/live_product.php" error="log" info="radio button tooltips">
 		<operation error="log">
 			<search>
 				<![CDATA[var g_option_id;]]>
@@ -262,7 +262,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 
 	$("#us-one-click-modal").off('hidden.bs.modal').on('hidden.bs.modal', function() {
 		if (g_log) {
-			console.log('-- Live Options+ > Clear modal');
+			console.log('-- Live Product+ > Clear modal');
 		}
 		$('.modal-holder').empty();
 
@@ -272,7 +272,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 
 	$("#us-one-click-modal").off('shown.bs.modal').on('shown.bs.modal', function() {
 		if (g_log) {
-			console.log('-- Live Options+ > Show modal');
+			console.log('-- Live Product+ > Show modal');
 		}
 
 		setGTags(popup);
@@ -298,7 +298,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[<option value="{{ option_value.product_option_value_id }}">]]>
 			</search>
 			<add position="replace">
-				<![CDATA[<option {% if live_options.status %}id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% endif %} value="{{ option_value.product_option_value_id }}">]]>
+				<![CDATA[<option {% if live_product.status %}id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% endif %} value="{{ option_value.product_option_value_id }}">]]>
 			</add>
 		</operation>
 	</file>
@@ -329,14 +329,14 @@ code package and also available on the project page: https://git.io/JfjTZ.
 			</search>
 			<add position="replace">
 				<![CDATA[
-				  {% if live_options.status %}
-                    <span id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
+				  {% if live_product.status %}
+                    <span id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
                   {% else %}
                     ({{ option_value.price_prefix }}{{ option_value.price }})
                   {% endif %}
                 {% else %}
-                  {% if live_options.status %}
-                    <span id="{{ live_options.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
+                  {% if live_product.status %}
+                    <span id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"></span>
                   {% endif %}]]>
 			</add>
 		</operation>
@@ -348,7 +348,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{% if option_value.price %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}id="{{ live_options.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
+				<![CDATA[{% if live_product.status %}id="{{ live_product.css.option_id }}-label-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% else %}title="{{ option_value.price_prefix }}{{ option_value.price }}"{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -359,7 +359,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ price }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.price_id }}" data-id="{{ live_options.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -370,7 +370,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ special }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.special_id }}" data-id="{{ live_options.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -394,7 +394,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ discount.price }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_options.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_product.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -405,7 +405,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ reward }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.reward_id }}" data-id="{{ live_options.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.reward_id }}" data-id="{{ live_product.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -416,7 +416,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ tax }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.tax_id }}" data-id="{{ live_options.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.tax_id }}" data-id="{{ live_product.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -427,7 +427,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{{ points }}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_options.status %}<span id="{{ live_options.css.points_id }}" data-id="{{ live_options.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.points_id }}" data-id="{{ live_product.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
@@ -439,7 +439,7 @@ code package and also available on the project page: https://git.io/JfjTZ.
 				<![CDATA[{% if oct_popup_purchase_data.mask is defined and oct_popup_purchase_data.mask is not empty %}]]>
 			</search>
 			<add position="before">
-				<![CDATA[{% if live_options.status %}<script type="text/javascript">update();</script>{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<script type="text/javascript">update();</script>{% endif %}]]>
 			</add>
 		</operation>
 	</file>
