@@ -1,4 +1,4 @@
-mod_name=live-options--$(shell basename `pwd`)
+mod_name=live-product--$(shell basename `pwd`)
 bin_dir=bin
 img_dir=img
 src_dir=src
