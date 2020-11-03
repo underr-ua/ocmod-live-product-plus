@@ -15,13 +15,14 @@ The "Live Product Ultimate" extension is for Opencart 3 CMS. It upgrades the "Li
 ## Links
 * [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460)
 * [Homepage](https://underr.space/en/notes/projects/project-0013.html)
-* [Github](https://git.io/JfjUj)
+* [Github](https://git.io/JTbnY)
 
 ## License
-[End User License Agreement](https://git.io/JfjTP)
+[End User License Agreement](https://git.io/JTbnE)
 
 ## Related modules and extensions
 * [Live Product+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36005)
 * [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383)
-* [Journal3 Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38532)
+* [Flexible Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391)
+* [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489)
 
