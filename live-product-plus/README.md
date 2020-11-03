@@ -13,6 +13,12 @@ The Live Product+ extension is for Opencart 3 CMS. It allows to live update pric
 * Adding custom text for products with empty base price
 * Does not change core files due to the use of OCMOD modification system
 
+## Compatible extensions with additional features
+* Upgrade Live Product+ to Ultimate version with the [Live Product Ultimate](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460) addon
+* Apply special offers and discounts to option prices with the [Flexible Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module
+* Set options that will count only once with the [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489) module
+* Add option prefix "=" with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
+
 ## Live demo
 * [Admin](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/live_product)
 * [Front](http://ocmod.freevar.com/oc3020/a)
