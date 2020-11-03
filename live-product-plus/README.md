@@ -23,11 +23,12 @@ The Live Product+ extension is for Opencart 3 CMS. It allows to live update pric
 * [Github](https://git.io/JfjUj)
 
 ## License
-[End User License Agreement](https://git.io/JvBf9)
+[End User License Agreement](https://git.io/JTbUa)
 
 ## Related modules and extensions
 * [Live Product Ultimate](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460)
 * [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383)
 * [Flexible Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391)
+* [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489)
 
 
