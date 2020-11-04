@@ -13,7 +13,6 @@ The "Live Product Ultimate" extension is for Opencart 3 CMS. It upgrades the "Li
 * Set options that will count only once with the [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489) module
 * Add option prefix "=" with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
 
-
 ## Live demo
 * [Admin](http://ocmod.freevar.com/oc3020/b/admin/index.php?route=extension/module/live_product)
 * [Front](http://ocmod.freevar.com/oc3020/b)
