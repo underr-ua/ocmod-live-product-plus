@@ -136,7 +136,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price]]>
 			</search>
 			<add position="replace">
-				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price . (!$option_oldprice ? '' : ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>')]]>
+				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price . ((!$option_oldprice || $option_type === 'select') ? '' : ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>')]]>
 			</add>
 		</operation>
 
