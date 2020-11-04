@@ -2,6 +2,7 @@
 
 ## [1.1.0] - 2020.11.03:
 ### Internal
+- Compatibility with the Price Range+ module v1.4.0
 - Compatibility with the Live Product+ module v3.0.0
 
 ## [1.0.4] (2020.06.29):
