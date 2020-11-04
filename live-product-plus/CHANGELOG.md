@@ -1,4 +1,9 @@
 # Change log
+## [3.0.1] - 2020.11.04:
+### Fixed:
+- Displayed text for product with no base price
+- Ex-tax prices hiding with installed Price Range+ module
+
 ## [3.0.0] - 2020.10.30:
 ### Changed:
 - Module renamed to Live Product+
