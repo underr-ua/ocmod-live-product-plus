@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Product+" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JfjTO.
+-->
+
+<modification>
+	<name>[underr] Compatibility: Live Product+ > Journal3 </name>
+	<code>live-product--journal3</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JfjUj</link>
+
+	<file path="catalog/view/theme/journal3/template/product/product.twig" error="log">
+		<operation error="log" info="Journal 3">
+			<search>
+				<![CDATA[id="product-quantity"]]>
+			</search>
+			<add position="replace">
+				<![CDATA[autocomplete="off" id="product-quantity"]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/journal3/template/product/product.twig" error="log">
+		<operation error="log" info="color swatches compatibility fix">
+			<search>
+				<![CDATA[<span>{{ product_weight }}</span>]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_product.status and live_product.product_weight %}<span id="{{ live_product.css.weight_id }}"></span>{% else %}{{ product_weight }}{% endif %}]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/journal3/template/product/product.twig" error="log">
+		<operation error="log" info="color swatches compatibility fix">
+			<search>
+				<![CDATA[title="{{ option_value.name }} {% if option_value.price and optionPrice %} ({{ option_value.price_prefix }}{{ option_value.price }}) {% endif %}"]]>
+			</search>
+			<add position="replace">
+				<![CDATA[title="{{ option_value.name }} {% if option_value.price and optionPrice %} ({{ option_value.price_prefix }}{{  option_value.price  }}) {% endif %}"]]>
+			</add>
+		</operation>
+	</file>
+
+</modification>
