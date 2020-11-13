@@ -1,6 +1,6 @@
 # Live Product Ultimate
 
-The "Live Product Ultimate" extension is for Opencart 3 CMS. It upgrades the "Live Product+" module and adds ability to show total weight, points, weight and availability of product options, caches sql-queries, etc.
+The "Live Product Ultimate" extension is for OpenCart CMS 2.x-3.x versions. It upgrades the "Live Product+" module and adds ability to show total weight, points, weight and availability of product options, caches sql-queries, etc.
 
 ## Features (in addition to available in the main module)
 * Total weight of product and selected options

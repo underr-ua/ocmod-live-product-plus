@@ -1,5 +1,9 @@
 # Change log
 
+## [1.3.1] - 2020.11.13:
+### Added
+- Compatibility with OC 2.x
+
 ## [1.3.0] - 2020.11.03:
 ### Internal
 - Compatibility with the Live Product+ module v3.0.0
