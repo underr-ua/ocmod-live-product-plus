@@ -3,13 +3,13 @@
 The Live Product+ extension is for OpenCart CMS 2.x-3.x versions. It allows to live update prices depending on selected options and quantity. Based on AJAX.
 
 ## Features
-* Update prices depending on selected options and quantity
+* Instant prices update based on selected quantity and options
+* Show full prices (product price + option price)
+* Option prices hiding
+* ExTax prices hiding
 * Compatibility with the [Enhanced Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module to apply specials and discounts to product options
-* Compatibility with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
-* Hiding option prefixes to show full option prices
-* Hiding option prices
-* Hiding ex-tax prices
-* Custom text for products with empty base price (e.g., "Select Options")
+* Compatibility with product options prefixed with an equal sign - [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
+* Displaying custom text for products without a base price (e.g., "Select Options")
 * Does not change core files due to the use of OCMOD modification system
 
 ## Compatible extensions with additional features

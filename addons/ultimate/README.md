@@ -9,7 +9,7 @@ The "Live Product Ultimate" extension is for OpenCart CMS 2.x-3.x versions. It u
 
 ## Compatible extensions with additional features
 * Display product price as range of minimum and maximum prices based on product option prices with the [Price Range+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38331) module
-* Apply special offers and discounts to option prices with the [Flexible Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module
+* Apply special offers and discounts to option prices with the [Enhanced Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module
 * Set options that will count only once with the [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489) module
 * Add option prefix "=" with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
 
