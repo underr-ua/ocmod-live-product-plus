@@ -6,12 +6,12 @@ and conditions defined in file "LICENSE.txt", which is part of this source
 code package and also available on the project page: https://git.io/JTFp8.-->
 
 <modification>
-	<name>[underr] Live Product+ &lt; Flexible Options+</name>
-	<code>live-product--flexible-options</code>
-	<version>1.0.1</version>
+	<name>[underr] Live Product+ &lt; Enhanced Options+</name>
+	<code>live-product--enhanced-options</code>
+	<version>1.2.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
-	<description>Live Product+ add-on to acompatibility with Flexible Options+ module</description>
+	<description>Live Product+ add-on to acompatibility with Enhanced Options+ module</description>
 
 	<file path="catalog/controller/extension/module/live_product.php" error="log">
 		<operation error="log">
@@ -19,12 +19,12 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[foreach ($this->config->get('module_live_product')['other'] as $key => $value) {]]>
 			</search>
 			<add position="before">
-				<![CDATA[			/// Flexible Options+
-			if ($this->config->get('module_flexible_options_status')) {
+				<![CDATA[			/// Enhanced Options+
+			if ($this->config->get('module_enhanced_options_status')) {
 				$this->option_ratio = TRUE;
 
-				if (isset($this->config->get('module_flexible_options')['text'][$this->config->get('config_language_id')])) {
-					foreach ($this->config->get('module_flexible_options')['text'][$this->config->get('config_language_id')] as $key => $value) {
+				if (isset($this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')])) {
+					foreach ($this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')] as $key => $value) {
 						$this->{'text_' . $key} = $value;
 					}
 				}
@@ -38,7 +38,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[$price = (float)$product_info['price'];]]>
 			</search>
 			<add position="after">
-				<![CDATA[			$co = 1;  /// Flexible Options+]]>
+				<![CDATA[			$co = 1;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -46,7 +46,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[$special = (float)$product_info['special'];]]>
 			</search>
 			<add position="after">
-				<![CDATA[				$co = $this->option_ratio ? $special / $price : 1;  /// Flexible Options+]]>
+				<![CDATA[				$co = $this->option_ratio ? $special / $price : 1;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -54,7 +54,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA['quantity' => (int)$product_discount['quantity'],]]>
 			</search>
 			<add position="after">
-				<![CDATA[						'co'       => $this->option_ratio ? $product_discount['price'] / $product_info['price'] : 1,  /// Flexible Options+]]>
+				<![CDATA[						'co'       => $this->option_ratio ? $product_discount['price'] / $product_info['price'] : 1,  /// Enhanced Options+]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -62,25 +62,58 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[$discount_qty = $product_discount['quantity'];]]>
 			</search>
 			<add position="after">
-				<![CDATA[						$co = $this->option_ratio ? $price / $product_info['price'] : 1;  /// Flexible Options+]]>
+				<![CDATA[						$co = $this->option_ratio ? $price / $product_info['price'] : 1;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 
 		<operation error="log">
 			<search info="">
-				<![CDATA[if ($option_price) {]]>
+				<![CDATA[if ((float)$option_price) {]]>
 			</search>
 			<add position="after">
-				<![CDATA[								$option_price *= $discount_qty ? $co : 1;  /// Flexible Options+]]>
+				<![CDATA[								$option_price *= $discount_qty ? $co : 1;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 
-		<operation error="log">
+		<operation error="log" info="free">
 			<search info="">
-				<![CDATA[if ($option_price && $option_price !== $this->text_free_option) {]]>
+				<![CDATA[if ($price_prefix === '=') {]]>
+			</search>
+			<add position="after">
+				<![CDATA[										/// <<< Enhanced Options+
+										if ($this->config->get('module_enhanced_options_status') &&
+											$this->config->get('module_enhanced_options')['notice'] &&
+											$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free']
+										) {
+											$option_price = $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free'];
+										}
+										/// Enhanced Options+ >>>]]>
+			</add>
+		</operation>
+
+		<operation error="log" info="preorder">
+			<search>
+				<![CDATA[$is_selected = $this->isSelected(]]>
 			</search>
 			<add position="before">
-				<![CDATA[							$option_oldprice = false;  /// Flexible Options+]]>
+				<![CDATA[							/// <<< Enhanced Options+
+							if (!$option_subtract && $option_quantity == 0 &&
+								$this->config->get('module_enhanced_options_status') &&
+								$this->config->get('module_enhanced_options')['notice'] &&
+								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder']
+							) {
+								$option_price .= $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder'];
+							}
+							/// Enhanced Options+ >>>]]>
+			</add>
+		</operation>
+	
+		<operation error="log">
+			<search info="">
+				<![CDATA[if (is_numeric($option_price) && (float)$option_price) {]]>
+			</search>
+			<add position="before">
+				<![CDATA[							$option_oldprice = false;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 
@@ -89,7 +122,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[$option_tax = $config_tax ? 'P' : false;]]>
 			</search>
 			<add position="after">
-				<![CDATA[								/// Flexible Options+
+				<![CDATA[								/// Enhanced Options+
 								if (!empty($product_option_value['oldprice'])) {
 									$option_oldprice = $this->currency->format(
 										$this->tax->calculate($option_price / $co, $product_info['tax_class_id'], $option_tax), $this->session->data['currency']
@@ -104,7 +137,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 			</search>
 			<add position="before">
 				<![CDATA[
-							/// Flexible Options+
+							/// Enhanced Options+
 							if ($option_type === 'select' && !$this->option_hide_price && $option_price && $option_oldprice) {
 								$product_option_value_data[] = array(
 									'name'                    => $product_option_value['name'],
@@ -127,7 +160,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price,]]>
 			</search>
 			<add position="after">
-				<![CDATA[								'oldprice'                => $option_oldprice, /// Flexible Options+]]>
+				<![CDATA[								'oldprice'                => $option_oldprice, /// Enhanced Options+]]>
 			</add>
 		</operation>
 
