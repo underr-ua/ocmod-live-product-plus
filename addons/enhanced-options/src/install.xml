@@ -68,10 +68,10 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 
 		<operation error="log">
 			<search info="">
-				<![CDATA[if ((float)$option_price) {]]>
+				<![CDATA[$option_price = (float)$product_option_value['price'];]]>
 			</search>
 			<add position="after">
-				<![CDATA[								$option_price *= $discount_qty ? $co : 1;  /// Enhanced Options+]]>
+				<![CDATA[							$option_price *= $discount_qty ? $co : 1;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 
@@ -80,25 +80,26 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 				<![CDATA[if ($price_prefix === '=') {]]>
 			</search>
 			<add position="after">
-				<![CDATA[										/// <<< Enhanced Options+
-										if ($this->config->get('module_enhanced_options_status') &&
-											$this->config->get('module_enhanced_options')['notice'] &&
-											$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free']
-										) {
-											$option_price = $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free'];
-										}
-										/// Enhanced Options+ >>>]]>
+				<![CDATA[										$is_free = TRUE;  /// <<< Enhanced Options+]]>
 			</add>
 		</operation>
 
-		<operation error="log" info="oldprice">
-			<search>
+		<operation error="log" info="free">
+			<search info="">
 				<![CDATA[$is_selected = $this->isSelected(]]>
 			</search>
 			<add position="before">
 				<![CDATA[							/// <<< Enhanced Options+
+							if ($is_free &&
+								$this->config->get('module_enhanced_options_status') &&
+								$this->config->get('module_enhanced_options')['notice'] &&
+								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free']
+							) {
+								$option_price = $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free'];
+							}
+
 							if ($option_type === 'select') {
-								if (!$this->option_hide_price && $is_num_option && $option_oldprice) {
+								if (!$this->option_hide_price && $option_price && $option_oldprice) {
 									$product_option_value_data[] = array(
 										'name'                    => $product_option_value['name'],
 										'option_value_id'         => $product_option_value['option_value_id'],
@@ -117,21 +118,13 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 									$option_price = '';
 								} else {
 
-									if ($option_oldprice && $is_num_option) {
+									if ($option_oldprice && $option_price) {
 										$option_price .= ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>';
 									}
 								}
-							}]]>
-			</add>
-		</operation>
+							}
 
-		<operation error="log" info="preorder">
-			<search>
-				<![CDATA[$is_selected = $this->isSelected(]]>
-			</search>
-			<add position="before">
-				<![CDATA[
-							if (!$option_subtract && $option_quantity == 0 &&
+							if (!$option_subtract && $option_quantity == 0 && $option_price &&
 								$this->config->get('module_enhanced_options_status') &&
 								$this->config->get('module_enhanced_options')['notice'] &&
 								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder']
@@ -141,13 +134,14 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 							/// Enhanced Options+ >>>]]>
 			</add>
 		</operation>
-	
+
 		<operation error="log">
 			<search info="">
-				<![CDATA[if ($is_num_option) {]]>
+				<![CDATA[$points_prefix = $product_option_value['points_prefix'];]]>
 			</search>
-			<add position="before">
-				<![CDATA[							$option_oldprice = false;  /// Enhanced Options+]]>
+			<add position="after">
+				<![CDATA[							$option_oldprice = FALSE;  /// Enhanced Options+
+							$is_free = FALSE;  /// Enhanced Options+]]>
 			</add>
 		</operation>
 
