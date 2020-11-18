@@ -1,4 +1,8 @@
 # Change log
+## [3.2.0] - 2020.11.17:
+### Removed:
+- Custom text for options that has no prices but prefixed with an equal sign (moved to Enhanced Options+)
+
 ## [3.1.0] - 2020.11.13:
 ### Added:
 - OC v2.x support
