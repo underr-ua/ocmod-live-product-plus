@@ -91,12 +91,46 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 			</add>
 		</operation>
 
-		<operation error="log" info="preorder">
+		<operation error="log" info="oldprice">
 			<search>
 				<![CDATA[$is_selected = $this->isSelected(]]>
 			</search>
 			<add position="before">
 				<![CDATA[							/// <<< Enhanced Options+
+							if ($option_type === 'select') {
+								if (!$this->option_hide_price && $is_num_option && $option_oldprice) {
+									$product_option_value_data[] = array(
+										'name'                    => $product_option_value['name'],
+										'option_value_id'         => $product_option_value['option_value_id'],
+										'points'                  => $option_points,
+										'points_prefix'           => $points_prefix,
+										'price'                   => $option_oldprice . ' - ' . $this->text_oldprice,
+										'price_prefix'            => $price_prefix,
+										'product_option_value_id' => $product_option_value['product_option_value_id'] . '-disabled',
+									);
+
+									$option_price = $option_price .  ' - ' . $this->text_newprice;
+								}
+
+							} else {
+								if ($this->option_hide_price)  {
+									$option_price = '';
+								} else {
+
+									if ($option_oldprice && $is_num_option) {
+										$option_price .= ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>';
+									}
+								}
+							}]]>
+			</add>
+		</operation>
+
+		<operation error="log" info="preorder">
+			<search>
+				<![CDATA[$is_selected = $this->isSelected(]]>
+			</search>
+			<add position="before">
+				<![CDATA[
 							if (!$option_subtract && $option_quantity == 0 &&
 								$this->config->get('module_enhanced_options_status') &&
 								$this->config->get('module_enhanced_options')['notice'] &&
@@ -110,7 +144,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 	
 		<operation error="log">
 			<search info="">
-				<![CDATA[if (is_numeric($option_price) && (float)$option_price) {]]>
+				<![CDATA[if ($is_num_option) {]]>
 			</search>
 			<add position="before">
 				<![CDATA[							$option_oldprice = false;  /// Enhanced Options+]]>
@@ -133,45 +167,21 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 
 		<operation error="log">
 			<search info="">
-				<![CDATA[$product_option_value_data[] = array(]]>
-			</search>
-			<add position="before">
-				<![CDATA[
-							/// Enhanced Options+
-							if ($option_type === 'select' && !$this->option_hide_price && $option_price && $option_oldprice) {
-								$product_option_value_data[] = array(
-									'name'                    => $product_option_value['name'],
-									'option_value_id'         => $product_option_value['option_value_id'],
-									'points'                  => $option_points,
-									'points_prefix'           => $points_prefix,
-									'price'                   => $option_oldprice . ' - ' .$this->text_oldprice,
-									'price_prefix'            => $price_prefix,
-									'product_option_value_id' => $product_option_value['product_option_value_id'] . '-disabled',
-								);
-
-								$option_price = $option_price .  ' - ' . $this->text_newprice;
-							}
-				]]>
-			</add>
-		</operation>
-
-		<operation error="log">
-			<search info="">
-				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price,]]>
+				<![CDATA[=> $option_price,]]>
 			</search>
 			<add position="after">
 				<![CDATA[								'oldprice'                => $option_oldprice, /// Enhanced Options+]]>
 			</add>
 		</operation>
 
-		<operation error="log">
+		<!-- <operation error="log">
 			<search info="">
 				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price]]>
 			</search>
 			<add position="replace">
 				<![CDATA[($this->option_hide_price || !$option_price) ? '' : $price_prefix . $option_price . ((!$option_oldprice || $option_type === 'select') ? '' : ' <span class="option-price-old" style="text-decoration:line-through;">' . $option_oldprice . '</span>')]]>
 			</add>
-		</operation>
+		</operation> -->
 
 		<operation error="log">
 			<search info="">
