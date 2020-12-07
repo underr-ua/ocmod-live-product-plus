@@ -1,5 +1,9 @@
 # Change log
 
+## [1.3.2] - 2020.12.08:
+### Internal
+- Compatibility with the Live Product+ module v3.2.1 (Compatibility with PHP 7.3.x)
+
 ## [1.3.1] - 2020.11.13:
 ### Added
 - Compatibility with OC 2.x
