@@ -1,0 +1,1 @@
+# So-Emarket Compatibility Addon

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Product+" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JfjTO.
+-->
+
+<modification>
+	<name>[underr] Compatibility: Live Product+ > eMarket </name>
+	<code>live-product--emarket</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JfjUj</link>
+
+	<file path="catalog/view/theme/{so-emarket,so-mobile}/template/product/product.twig" error="log">
+		<operation error="log" info="">
+			<search>
+				<![CDATA[ajax_price()]]>
+			</search>
+			<add position="replace">
+				<![CDATA[// ajax_price();]]>
+			</add>
+		</operation>
+	</file>
+
+</modification>
