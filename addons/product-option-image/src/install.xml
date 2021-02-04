@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file is part of "Live Product+" project and subject to the terms
+and conditions defined in file "LICENSE.txt", which is part of this source
+code package and also available on the project page: https://git.io/JfjTv.
+-->
+
+<modification>
+	<name>[underr] Live Product+ &lt; Product Option Image</name>
+	<code>live-product--product-option-image</code>
+	<version>1.1.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://git.io/JfjUj</link>
+
+	<file path="catalog/controller/extension/module/live_product.php" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA['[id^="input-option"] input[type="radio"]',]]>
+			</search>
+			<add position="after">
+				<![CDATA[	'li.option-value', /// Compatibility with Product Option Image PRO]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[g_content_id + '[name="quantity"]',]]>
+			</search>
+			<add position="after">
+				<![CDATA[		g_content_id + '.option-value.option-value-checked input:checked', /// Compatibility with Product Option Image PRO]]>
+			</add>
+		</operation>
+	</file>
+</modification>
