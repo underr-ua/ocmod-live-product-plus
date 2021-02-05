@@ -1,13 +1,19 @@
 # Change log
 
+## [1.0.4] - 2021-02-05:
+### Fixed
+- Displaying wrong prices for discounted options (double discounting)
+- Сompatibility with the "Live Product+" v3.2.1
+
 ## [1.0.3] - 2021-02-04:
-### Internal
-- Minor changes to compatibility with the "Enhanced Options+" v1.3.1
+### Fixed
+- Сompatibility with the "Enhanced Options+" v1.3.1
 
 ## [1.0.2] - 2020-11-17:
 ### Changed
-- Minor changes to compatibility with the "Live Product+" v3.2.0
 - Renamed to  Live Product+ < Enhanced Options+
+### Fixed
+- Сompatibility with the "Live Product+" v3.2.0
 
 ## [1.0.1] - 2020-11-04:
 ### Fixed

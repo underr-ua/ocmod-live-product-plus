@@ -8,7 +8,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 <modification>
 	<name>[underr] Live Product+ &lt; Enhanced Options+</name>
 	<code>live-product--enhanced-options</code>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 	<description>Live Product+ add-on to acompatibility with Enhanced Options+ module</description>
@@ -21,7 +21,9 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 			<add position="before">
 				<![CDATA[			/// Enhanced Options+
 			if ($this->config->get('module_enhanced_options_status')) {
-				$this->option_ratio = TRUE;
+				if ($this->config->get('module_enhanced_options')['flexible_options']) {
+					$this->option_ratio = TRUE;
+				}
 
 				if (isset($this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')])) {
 					foreach ($this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')] as $key => $value) {
