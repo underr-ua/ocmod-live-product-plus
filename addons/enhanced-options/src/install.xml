@@ -8,7 +8,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 <modification>
 	<name>[underr] Live Product+ &lt; Enhanced Options+</name>
 	<code>live-product--enhanced-options</code>
-	<version>1.0.4</version>
+	<version>1.1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 	<description>Live Product+ add-on to acompatibility with Enhanced Options+ module</description>
@@ -69,7 +69,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 		</operation>
 
 		<operation error="log">
-			<search info="">
+			<search index="0" info="">
 				<![CDATA[$option_price = (float)$product_option_value['price'];]]>
 			</search>
 			<add position="after">
@@ -95,9 +95,9 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 							if ($is_free &&
 								$this->config->get('module_enhanced_options_status') &&
 								$this->config->get('module_enhanced_options')['notices'] &&
-								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free']
+								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free_option']
 							) {
-								$option_price = $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free'];
+								$option_price = $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['free_option'];
 							}
 
 							if ($option_type === 'select') {
@@ -129,9 +129,9 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 							if (!$option_subtract && $option_quantity == 0 && $option_price &&
 								$this->config->get('module_enhanced_options_status') &&
 								$this->config->get('module_enhanced_options')['notices'] &&
-								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder']
+								$this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder_option']
 							) {
-								$option_price .= $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder'];
+								$option_price .= $this->config->get('module_enhanced_options')['text'][$this->config->get('config_language_id')]['preorder_option'];
 							}
 							/// Enhanced Options+ >>>]]>
 			</add>
@@ -203,6 +203,76 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 			</search>
 			<add position="replace">
 				<![CDATA[$option_sale_total, $discount_qty ? $option_price * $co : $option_price, $price_prefix]]>
+			</add>
+		</operation>
+	</file>
+
+	<file path="catalog/controller/extension/module/live_product.php" error="log">
+		<operation error="log">
+			<search>
+				<![CDATA[class ControllerExtensionModuleLiveProduct extends Controller {]]>
+			</search>
+			<add position="after">
+				<![CDATA[	private $flat_rate_status = false; /// Enhanced Options+ > flat rate options]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[$product_options = $this->model_catalog_product->getProductOptions($product_info['product_id']);]]>
+			</search>
+			<add position="after">
+				<![CDATA[			/// << Enhanced Options+ > flat rate options
+			if ($this->config->get('module_enhanced_options_status') &&
+				isset($this->config->get('module_enhanced_options')['flat_rate'])
+			) {
+				$this->flat_rate_status = $this->config->get('module_enhanced_options')['flat_rate'];
+			}
+			/// Enhanced Options+ > flat rate options >>]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[foreach ($product_options as $product_option) {]]>
+			</search>
+			<add position="after">
+				<![CDATA[					/// << Enhanced Options+ > flat rate options
+					if ($this->flat_rate_status && isset($product_option['flat_rate'])) {
+						$is_flat_rate = $product_option['flat_rate'];
+					} else {
+						$is_flat_rate = false;
+					}
+					/// Enhanced Options+ > flat rate options >>]]>
+			</add>
+		</operation>
+		<operation error="log">
+			<search>
+				<![CDATA[if ($this->product_total && $this->option_total) {]]>
+			</search>
+			<add position="replace">
+				<![CDATA[if ($this->product_total && $this->option_total && !$is_flat_rate) {  /// Enhanced Options+ > flat rate options >>]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search>
+				<![CDATA[if (is_array($post_option))]]>
+			</search>
+			<add position="before">
+				<![CDATA[								/// << Enhanced Options+ > flat rate options
+								if ($is_flat_rate) {
+									$option_price /= $quantity;
+									$option_points = round($option_points / $quantity);
+								}
+								/// Enhanced Options+ > flat rate options >>]]>
+			</add>
+		</operation>
+
+		<operation error="log">
+			<search>
+				<![CDATA['required'             => $product_option['required'],]]>
+			</search>
+			<add position="after">
+				<![CDATA[						'flat_rate'           => isset($product_option['flat_rate']) ? $product_option['flat_rate'] : false, /// Once Counted Options+ compatibility]]>
 			</add>
 		</operation>
 	</file>

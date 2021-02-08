@@ -1,5 +1,9 @@
 # Change log
 
+## [1.1.0] - 2021-02-08:
+### Fixed
+- Compatibility in part of flat rate options
+
 ## [1.0.4] - 2021-02-05:
 ### Fixed
 - Displaying wrong prices for discounted options (double discounting)
