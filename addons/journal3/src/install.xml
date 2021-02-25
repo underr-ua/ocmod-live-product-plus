@@ -23,7 +23,6 @@ code package and also available on the project page: https://git.io/JfjTO.
 			</add>
 		</operation>
 	</file>
-
 	<file path="catalog/view/theme/journal3/template/product/product.twig" error="log">
 		<operation error="log" info="color swatches compatibility fix">
 			<search>
