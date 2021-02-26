@@ -1,8 +1,8 @@
 # Change log
 
-## [3.3.0] - 2021.02.25:
+## [3.2.2] - 2021.02.26:
 ### Internal:
-- Improved compatibility with custom themes
+- Internal changes
 
 ## [3.2.1] - 2020.12.08:
 ### Fixed:
