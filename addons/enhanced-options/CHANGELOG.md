@@ -1,5 +1,9 @@
 # Change log
 
+## [1.2.0] - 2021-02-08:
+### Internal
+- Compatibility with the latest version of "Live Product+" module
+
 ## [1.1.0] - 2021-02-08:
 ### Fixed
 - Compatibility in part of flat rate options
