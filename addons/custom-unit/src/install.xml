@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+This file made by Andrii Burkatskyi aka underr, https://github.com/underr-ua, ocmod.space@gmail.com
+-->
+
+<modification>
+	<name>[underr] Live Product+ &lt; Custom Unit</name>
+	<code>live-product-custom-unit</code>
+	<version>1.0.0</version>
+	<author>Andrii Burkatskyi aka underr</author>
+	<link>https://github.com/underr-ua</link>
+
+    <file path="catalog/controller/extension/module/live_product.php">
+        <operation error="log"><!-- Live Options+ extension integration -->
+            <search>
+                <![CDATA[$json['success'] = true;]]>
+            </search>
+            <add position="after">
+                <![CDATA[			/// <<< Live Product + < Custom Unit
+			if ($this->config->get('myoc_cunit_status')) {
+				$this->load->language('extension/myoc/cunit');
+				$custom_unit = $this->myoc_cunit->getCustomUnit($product_id);
+
+				if ($product_info && $custom_unit) {
+					$text_base = !empty($custom_unit['base']) ? $this->language->get('text_per') . $custom_unit['base'] : "";
+					$text_collective = !empty($custom_unit['collective']) ? $this->language->get('text_per') . $custom_unit['collective'] : "";
+
+					$price_collective = ($product_info['price_collective'] + $option_price_total) * $quantity;
+					$price_collective = $this->currency->format($this->tax->calculate($price_collective, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+					if ($custom_unit['price_in'] == 'b') {
+						$json['product']['price'] .= $text_base;
+					}
+
+					if ($custom_unit['price_in'] == 'a') {
+						$json['product']['price'] .= $text_base;
+						$json['product']['price'] .= "<br>";
+						$json['product']['price'] .= $price_collective . $text_collective;
+					}
+
+					if ($custom_unit['price_in'] == 'c') {
+						$json['product']['price'] = $price_collective . $text_collective;
+					}
+
+					if ($special) {
+						$special_collective = ($product_info['special_collective'] + $option_price_total) * $quantity;
+						$special_collective = $this->currency->format($this->tax->calculate($special_collective, $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+						if ($custom_unit['price_in'] == 'b') {
+							$json['product']['special'] .= $text_base;
+						}
+						if ($custom_unit['price_in'] == 'a') {
+							$json['product']['special'] .= $text_base;
+							$json['product']['special'] .= "<br>";
+							$json['product']['special'] .= $special_collective . $text_collective;
+						}
+
+						if ($custom_unit['price_in'] == 'c') {
+							$json['product']['special'] = $json['product']['special'] . $text_collective;
+						}
+					}
+
+					if ($config_tax) {
+						$tax_collective = (($special ? $product_info['special_collective'] : $product_info['price_collective']) + $option_price_total) * $quantity;
+						$tax_collective = $this->currency->format($tax_collective, $this->session->data['currency']);
+
+						if ($custom_unit['price_in'] == 'b') {
+							$json['product']['extax'] .= $text_base;
+						}
+						if ($custom_unit['price_in'] == 'a') {
+							$json['product']['extax'] .= $text_base;
+							$json['product']['extax'] .= "<br>" . 'Nettó:'  . " ";
+							$json['product']['extax'] .= $tax_collective . $text_collective;
+						}
+						if ($custom_unit['price_in'] == 'c') {
+							$json['product']['extax'] = $json['product']['extax'] . $text_collective;
+						}
+					}
+				}
+			}
+			/// Live Product + < Custom Unit >>>]]>
+            </add>
+        </operation>
+    </file>
+</modification>
