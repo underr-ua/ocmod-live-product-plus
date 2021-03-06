@@ -1,5 +1,9 @@
 # Change log
 
+## [3.2.3] - 2021.03.06:
+### Fixed:
+- Potential issue with quantity buttons on QuickView page on some templates
+
 ## [3.2.2] - 2021.02.26:
 ### Internal:
 - Internal changes
