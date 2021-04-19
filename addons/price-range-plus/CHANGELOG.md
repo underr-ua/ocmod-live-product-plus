@@ -1,8 +1,12 @@
 # Change log
 
-## [1.1.0] - 2020.11.03:
+## [1.2.0] - 2021.04.19:
 ### Internal
+- Compatibility with the Price Range+ module v1.4.4
+
+## [1.1.0] - 2020.11.03:
 - Compatibility with the Price Range+ module v1.4.0
+### Internal
 - Compatibility with the Live Product+ module v3.0.0
 
 ## [1.0.4] (2020.06.29):

@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 <modification>
 	<name>[underr] Live Product+ &lt; Price Range+</name>
 	<code>live-product--price-range-plus</code>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -19,7 +19,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 			<add position="before"><![CDATA[			/// << Live Product+ < Price Range+
 			if ($this->config->get('module_price_range_status')) {
 				$this->load->model('extension/module/price_range');
-				$price_range_settings = $this->model_extension_module_price_range->getModuleConfig();
+				$price_range_settings = $this->model_extension_module_price_range->getSettings();
 
 				if ($price_range_settings['status'] && !$this->hasSelected($post_options)) {
 					$this->load->model('extension/module/price_range');
@@ -43,7 +43,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 							$extax_range = $this->model_extension_module_price_range->calculate(
 								(float)$product_info['special'],
 								$product_options,
-								$this->option_ratio ? $product_info['special'] / $product_info['price'] : 1
+								!empty($this->is_flexible_options) ? $product_info['special'] / $product_info['price'] : 1
 							);
 
 							if ($this->product_total) {
@@ -88,7 +88,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 								}
 
 								$discount_range = $this->model_extension_module_price_range->calculate(
-									$discount['price'], $product_options, $this->option_ratio ? $discount['price'] / $product_info['price'] : 1
+									$discount['price'], $product_options, !empty($this->is_flexible_options) ? $discount['price'] / $product_info['price'] : 1
 								);
 
 								$discount_range['min'] = $this->tax->calculate($discount_range['min'], $product_info['tax_class_id'], $config_tax);
@@ -109,7 +109,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 							$special_range = $this->model_extension_module_price_range->calculate(
 								$this->product_total ? (float)$product_info['special'] * $quantity : (float)$product_info['special'],
 								$product_options,
-								$this->option_ratio ? $product_info['special'] / $product_info['price'] : 1
+								!empty($this->is_flexible_options) ? $product_info['special'] / $product_info['price'] : 1
 							);
 
 							$json['product']['special'] = $this->model_extension_module_price_range->format($special_range);
@@ -131,7 +131,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 								}
 
 								$discount_range = $this->model_extension_module_price_range->calculate(
-									$discount['price'], $product_options, $this->option_ratio ? $discount['price'] / $product_info['price'] : 1
+									$discount['price'], $product_options, !empty($this->is_flexible_options) ? $discount['price'] / $product_info['price'] : 1
 								);
 
 								$json['product']['discounts'][$discount['quantity']] = $this->model_extension_module_price_range->format($discount_range);
