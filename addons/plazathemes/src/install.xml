@@ -9,7 +9,7 @@ code package and also available on the project page: https://git.io/JfjTq.
 <modification>
 	<name>[underr] Compatibility: Live Product+ > Plaza-Themes</name>
 	<code>live-product--plazathemes</code>
-	<version>1.3.0</version>
+	<version>1.4.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://git.io/JfjUj</link>
 
@@ -64,28 +64,17 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[title="{{ option_value.name }} {% if option_value.price %}({{  option_value.price_prefix  }}{{  option_value.price  }})]]>
 			</add>
 		</operation>
-		<operation error="log" info="preloader support">
+		<!-- <operation error="log" info="preloader support">
 			<search>
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</search>
 			<add position="replace">
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and live_product.svg %}{{ live_product.svg }}{% endif %}]]>
 			</add>
-		</operation>
+		</operation> -->
 	</file>
 
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
-		<operation error="log" info="preloader support">
-			<search>
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
-			</search>
-			<add position="replace">
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and live_product.svg %}{{ live_product.svg }}{% endif %}]]>
-			</add>
-		</operation>
-	</file>
-
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+	<file path="catalog/view/theme/tt_*/template/plaza/quickview/product.twig" error="log">
 		<operation error="log" info="color swatches compatibility fix">
 			<search>
 				<![CDATA[title="{{ option_value.name }} {% if option_value.price %}({{ option_value.price_prefix }}{{ option_value.price }})]]>
@@ -94,9 +83,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[title="{{ option_value.name }} {% if option_value.price %}({{  option_value.price_prefix  }}{{  option_value.price  }})]]>
 			</add>
 		</operation>
-	</file>
 
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
 		<operation error="log">
 			<search>
 				<![CDATA[<option value="{{ option_value.product_option_value_id }}">]]>
@@ -105,8 +92,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[<option {% if live_product.status %}id="{{ live_product.css.option_id }}-{{ option.product_option_id }}-{{option_value.product_option_value_id}}"{% endif %} value="{{ option_value.product_option_value_id }}">]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[({{ option_value.price_prefix }}{{ option_value.price }})]]>
@@ -124,8 +110,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
                   {% endif %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[{{ price }}]]>
@@ -134,8 +119,16 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
+		<operation error="log" info="preloader support">
+			<search>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+			</search>
+			<add position="replace">
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and live_product.svg %}{{ live_product.svg }}{% endif %}]]>
+			</add>
+		</operation>
+
 		<operation error="log">
 			<search>
 				<![CDATA[>{{ special }}<]]>
@@ -144,8 +137,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %} id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}<{% else %}>{{ special }}<{% endif %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[{% if discounts %}]]>
@@ -154,8 +146,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if discounts and not special %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[{{ discount.price }}]]>
@@ -164,8 +155,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.discount_id }}-{{ discount.quantity }}" data-id="{{ live_product.css.discount_id }}-{{ discount.quantity }}">{{ discount.price }}</span>{% else %}{{ discount.price }}{% endif %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[{{ reward }}]]>
@@ -174,8 +164,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.reward_id }}" data-id="{{ live_product.css.reward_id }}">{{ reward }}</span>{% else %}{{ reward }}{% endif %}]]>
 			</add>
 		</operation>
-	</file>
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
+
 		<operation error="log">
 			<search>
 				<![CDATA[{{ tax }}]]>
@@ -184,9 +173,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.tax_id }}" data-id="{{ live_product.css.tax_id }}">{{ tax }}</span>{% else %}{{ tax }}{% endif %}]]>
 			</add>
 		</operation>
-	</file>
 
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
 		<operation error="log">
 			<search>
 				<![CDATA[{{ points }}]]>
@@ -195,9 +182,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.points_id }}" data-id="{{ live_product.css.points_id }}">{{ points }}</span>{% else %}{{ points }}{% endif %}]]>
 			</add>
 		</operation>
-	</file>
 
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
 		<operation error="log">
 			<search>
 				<![CDATA[{{ text_stock }}]]>
@@ -207,9 +192,7 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 				{% if live_product.status and live_product.product_weight %}<li>{{ text_weight }} <span id="{{ live_product.css.weight_id }}"></span></li>{% endif %}]]>
 			</add>
 		</operation>
-	</file>
 
-	<file path="catalog/view/theme/*/template/plaza/quickview/product.twig" error="log">
 		<operation error="log">
 			<search index="0">
 				<![CDATA[<script type="text/javascript">]]>
@@ -224,12 +207,12 @@ $(document).off('click', 'li.swatches-options a').on('click', 'li.swatches-optio
 	<file path="admin/controller/extension/module/live_product.php" error="log" info="add event for QV">
 		<operation error="log">
 			<search>
-				<![CDATA[$this->model_setting_event->addEvent('live_product_add_data']]>
+				<![CDATA[$this->{$model}->addEvent('live_product_add_module_data']]>
 			</search>
 			<add position="after">
 				<![CDATA[
-		$this->model_setting_event->addEvent('live_product_add_data', 'catalog/view/plaza/quickview/*/before', 'extension/module/live_product/addModuleData');
-		$this->model_setting_event->addEvent('live_product_hide_extax', 'catalog/view/plaza/quickview/*/before', 'extension/module/live_product/hideExTax');]]>
+		$this->{$model}->addEvent('live_product_add_module_data', 'catalog/view/plaza/quickview/*/before', 'extension/module/live_product/addModuleData');
+		$this->{$model}->addEvent('live_product_hide_extax', 'catalog/view/plaza/quickview/*/before', 'extension/module/live_product/hideExTax');]]>
 			</add>
 		</operation>
 	</file>
