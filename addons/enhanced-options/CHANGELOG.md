@@ -1,5 +1,9 @@
 # Change log
 
+## [1.3.0] - 2021-05-12:
+### Fixed
+- Displaying of original/sale option prices info and especial option notices
+
 ## [1.2.0] - 2021-02-08:
 ### Internal
 - Compatibility with the latest version of "Live Product+" module
