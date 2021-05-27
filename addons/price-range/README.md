@@ -1,8 +1,8 @@
-# Live Product+ > Price Range addon
+# Price Range addon for Live Product+
 
 ## Description
-The «Live Product+ > Price Range»" is an addon to provide compatibility between the Live Product+ and [Price Range](https://git.io/Jf9G9) modules.
+The addon for linking Live Product+ extensions to Price Range extension.
 
 ## License
-Licensed underr the [MIT License](https://git.io/JJvb6)
+Licensed underr the [MIT License](https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt)
 
