@@ -1,7 +1,13 @@
 # Change log
 
+## [3.3.0] - 2021.05.27:
+### Added
+- The remark that product prices, weight, etc., are multiplied by the selected quantity
+### Changed
+- Settings
+
 ## [3.2.3] - 2021.03.06:
-### Fixed:
+### Fixed
 - Potential issue with quantity buttons on QuickView page on some templates
 
 ## [3.2.2] - 2021.02.26:
@@ -9,40 +15,40 @@
 - Internal changes
 
 ## [3.2.1] - 2020.12.08:
-### Fixed:
+### Fixed
 - Compatibility wit PHP7.3.x
 
 ## [3.2.0] - 2020.11.17:
-### Removed:
+### Removed
 - Custom text for options that has no prices but prefixed with an equal sign (moved to Enhanced Options+)
 
 ## [3.1.0] - 2020.11.13:
-### Added:
+### Added
 - OC v2.x support
 
 ## [3.0.1] - 2020.11.04:
-### Fixed:
+### Fixed
 - Displayed text for product with no base price
 - Ex-tax prices hiding with installed Price Range+ module
 
 ## [3.0.0] - 2020.10.30:
-### Changed:
+### Changed
 - Module renamed to Live Product+
 - Improved Enabled/Disabled buttons in module settings
-### Removed:
+### Removed
 - "Option price ratio" feature moved to stand-alone module Flexible Options+
 
 ## [2.6.0] - 2020.08.31:
-### Added:
+### Added
 - Custom message for product without the base price
 - Definition of id of the html-container on the product page that contains product data
-### Fixed:
+### Fixed
 - Hide extax prices on some pages
 ### Internal
 - Renamed some variables
 
 ## [2.5.6] - 2020.08.23:
-### Changed:
+### Changed
 - Minor update of the compatibility with the Journal 3 template
 
 ## [2.5.5] - 2020.06.26:
@@ -50,7 +56,7 @@
 - Code changes and improvements
 
 ## [2.5.4] - 2020.06.25:
-### Added:
+### Added
 - Support of checkbox-options with prefix '='
 ### Changed
 - Improved hiding of option prefixes and displaying of full option prices
@@ -58,29 +64,29 @@
 - Code changes and improvements
 
 ## [2.5.3] - 2020.06.16:
-### Added:
+### Added
 - Ability to display full option prices for multioptional products in case, when prices are in one option type only
 
 ## [2.5.2] - 2020.06.10:
-### Fixed:
+### Fixed
 - Option caching on some browsers (e.g. Firefox)
 - Compatibility with quantity buttons
 - Minor code refactoring
 
 ## [2.5.1] - 2020.05.20:
-### Fixed:
+### Fixed
 - Minor warning issue
 
 ## [2.5.0] - 2020.05.15:
-### Changed:
+### Changed
 - Minor cleaning
-### Fixed:
+### Fixed
 - IE11 compatibility
 - Event handling
 - Markup issues
 
 ## [2.4.2] - 2020.05.09:
-### Fixed:
+### Fixed
 - Discounts markup
 
 ## [2.4.1] - 2020.05.05:
