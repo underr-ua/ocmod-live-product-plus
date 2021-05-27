@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file made by Andrii Burkatskyi aka underr, https://github.com/underr-ua, ocmod.space@gmail.com
+This file is subject to the terms and conditions defined in the "LICENSE.txt"
+file, which is part of this source code package and is also available on the
+page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 -->
 
 <modification>
@@ -9,7 +11,7 @@ This file made by Andrii Burkatskyi aka underr, https://github.com/underr-ua, oc
 	<code>live-product-custom-unit</code>
 	<version>1.0.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://github.com/underr-ua</link>
+	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
     <file path="catalog/controller/extension/module/live_product.php">
         <operation error="log"><!-- Live Options+ extension integration -->
