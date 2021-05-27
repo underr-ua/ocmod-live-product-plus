@@ -1,3 +1,7 @@
-# UltraStore Compatibility Addon
+# UltraStore addon for Live Product+
 
-The "UltraStore Compatibility Addon" is an addon for "Live Product+" module to provide compatibility with the [UltraStore](https://market.octemplates.net/templates/ultrastore)
+## Description
+The addon for linking Live Product+ extensions to [UltraStore](https://market.octemplates.net/templates/ultrastore) template
+
+## License
+Licensed underr the [MIT License](https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt)
