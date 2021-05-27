@@ -1,3 +1,7 @@
-# Enhanced Options+ Addon
+# Enhanced Options+ addon for Live Product+
 
-The "Enhanced Options+ Addon" is an addon for "Live Product+" module to add compatibility with the Enhanced Options+ module.
+## Description
+The addon for linking Live Product+ extensions to Enhanced Options+ extension.
+
+## License
+Licensed underr the [MIT License](https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt)

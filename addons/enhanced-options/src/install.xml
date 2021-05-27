@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file is part of "Live Product+" project and subject to the terms
-and conditions defined in file "LICENSE.txt", which is part of this source
-code package and also available on the project page: https://git.io/JTFp8.-->
+This file is subject to the terms and conditions defined in the "LICENSE.txt"
+file, which is part of this source code package and is also available on the
+page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
+-->
 
 <modification>
 	<name>[underr] Live Product+ &lt; Enhanced Options+</name>
 	<code>live-product--enhanced-options</code>
-	<version>1.3.0</version>
+	<version>1.4.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://git.io/JfjUj</link>
-	<description>Live Product+ add-on to acompatibility with Enhanced Options+ module</description>
+	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
 	<file path="catalog/controller/extension/module/live_product.php" error="log">
 		<operation error="log">
 			<search info="">
-				<![CDATA[foreach ($this->config->get('module_live_product')['other'] as $key => $value) {]]>
+				<![CDATA[foreach ($this->config->get('module_live_product')['misc'] as $key => $value) {]]>
 			</search>
 			<add position="before">
-				<![CDATA[			/// <<< Enhanced Options+
+				<![CDATA[			### <<< Enhanced Options+
 			$enhanced_options_status = $this->config->get('module_enhanced_options_status');
 
 			$this->flexible_options = $enhanced_options_status ? $this->config->get('module_enhanced_options')['flexible_options'] : false;
@@ -31,7 +31,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 					$this->{'text_' . $key} = $value;
 				}
 			}
-			/// Enhanced Options+ >>>]]>
+			### Enhanced Options+ >>>]]>
 			</add>
 		</operation>
 		<operation error="log">
@@ -245,7 +245,7 @@ code package and also available on the project page: https://git.io/JTFp8.-->
 
 		<operation error="log">
 			<search>
-				<![CDATA['required'             => $product_option['required'],]]>
+				<![CDATA[=> $product_option['required'],]]>
 			</search>
 			<add position="after">
 				<![CDATA[						'flat_rate'           => isset($product_option['flat_rate']) ? $product_option['flat_rate'] : false, /// Once Counted Options+ compatibility]]>
