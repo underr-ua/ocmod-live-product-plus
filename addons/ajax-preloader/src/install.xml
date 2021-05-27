@@ -11,7 +11,7 @@ page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 	<code>live-product--ajax-preloader</code>
 	<version>1.1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://git.io/JfjUj</link>
+	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
 	<file path="catalog/controller/extension/module/live_product.php" error="log">
 		<operation error="log">

@@ -1,3 +1,7 @@
-# Ajax Preloader addon for Live Product
+# Ajax Preloader addon for Live Product+
 
-The addon to display a little circle animation during price update.
+## Description
+The addon for displaying a little circle animation during price update.
+
+## License
+Licensed underr the [MIT License](https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt)
