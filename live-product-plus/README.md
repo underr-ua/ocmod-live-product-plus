@@ -3,21 +3,20 @@
 The Live Product+ extension is for OpenCart CMS 2.x-3.x versions. It allows to live update prices depending on selected options and quantity. Based on AJAX.
 
 ## Features
-* Instant prices update based on selected quantity and options
-* Show full prices (product price + option price)
-* Option prices hiding
-* ExTax prices hiding
-* Compatibility with the [Enhanced Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module to apply specials and discounts to product options
-* Compatibility with product options prefixed with an equal sign - [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
-* Displaying custom text for products without a base price (e.g., "Select Options")
-* Does not change core files due to the use of OCMOD modification system
+* Instant update product prices based on selected options and quantity
+* Hiding option prefixes (displaying full option prices)
+* Hiding option prices
+* Hiding ex-tax prices
+* Special message, e.g., "Select options" for products without base price
+* Ability to work with product options that use the equal sign as prefix
+* Does not modify system files due to the use of OCMOD system
 
-## Compatible extensions with additional features
-* Upgrade Live Product+ to Ultimate version with the [Live Product Ultimate](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460) addon
-* Display product price as range of minimum and maximum prices based on product option prices with the [Price Range+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38331) module
-* Apply special offers and discounts to option prices with the [Enhanced Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) module
-* Set options that will count only once with the [Once Counted Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38489) module
-* Add option prefix "=" with the [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) extension
+## Compatible extensions
+* [Live Product Ultimate](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=35460) - An addon that upgrades Live Product+ to Ultimate version
+* [Price Range+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=38331) - Displays prices as a range from a minimum to a maximum price based on product option prices
+* [Enhanced Options+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40391) - Allows to apply a product special offers and discounts to option prices
+* [Category Specials+](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=40385) - Allows to apply a product special offers to whole categories and sub-categories
+* [Option Equals Sign](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=34383) - Allows to use the equal sign as an option prefix
 
 ## Live demo
 * [Admin](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=extension/module/live_product)
@@ -26,8 +25,8 @@ The Live Product+ extension is for OpenCart CMS 2.x-3.x versions. It allows to l
 ## Links
 * [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=36005)
 * [Homepage](https://underr.space/en/notes/projects/project-0014.html)
-* [Github](https://git.io/JfjUj)
+* [GitHub](https://github.com/ocmod-space/ocmod-live-product)
 
 ## License
-[End User License Agreement](https://git.io/JTbUa)
+[End User License Agreement](https://raw.githubusercontent.com/ocmod-space/license/main/EULA.txt)
 
