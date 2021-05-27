@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file is part of "Live Product+" project and subject to the terms
-and conditions defined in file "LICENSE.txt", which is part of this source
-code package and also available on the project page: https://git.io/JfjTO.
+This file is subject to the terms and conditions defined in the "LICENSE.txt"
+file, which is part of this source code package and is also available on the
+page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 -->
 
 <modification>
-	<name>[underr] Compatibility: Live Product+ > Journal3 </name>
+	<name>[underr] !Live Product+ > Journal3 </name>
 	<code>live-product--journal3</code>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://git.io/JfjUj</link>
+	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
 	<file path="catalog/view/theme/journal3/template/product/product.twig" error="log">
 		<operation error="log" info="Journal 3">
@@ -29,7 +29,7 @@ code package and also available on the project page: https://git.io/JfjTO.
 				<![CDATA[<span>{{ product_weight }}</span>]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_product.status and live_product.product_weight %}<span id="{{ live_product.css.weight_id }}"></span>{% else %}{{ product_weight }}{% endif %}]]>
+				<![CDATA[{% if live_product.status and live_product.product_weight %}<span id="{{ live_product.ids.weight_id }}"></span>{% else %}{{ product_weight }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
