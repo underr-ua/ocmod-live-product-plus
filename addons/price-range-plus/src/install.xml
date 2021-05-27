@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-This file is part of "Live Product+" project and subject to the terms
-and conditions defined in file "LICENSE.txt", which is part of this source
-code package and also available on the project page: https://git.io/JJv5J.
+This file is subject to the terms and conditions defined in the "LICENSE.txt"
+file, which is part of this source code package and is also available on the
+page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 -->
 
 <modification>
@@ -11,7 +11,7 @@ code package and also available on the project page: https://git.io/JJv5J.
 	<code>live-product--price-range-plus</code>
 	<version>1.2.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
-	<link>https://git.io/JfjUj</link>
+	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
 	<file path="catalog/controller/extension/module/live_product.php" error="log">
 		<operation error="log">
