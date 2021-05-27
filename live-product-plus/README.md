@@ -1,6 +1,6 @@
 # Live Product+
 
-The Live Product+ extension is for OpenCart CMS 2.x-3.x versions. It allows to live update prices depending on selected options and quantity. Based on AJAX.
+The Live Product+ extension is for OpenCart CMS 3.x versions. It allows to live update prices depending on selected options and quantity. Based on AJAX.
 
 ## Features
 * Instant update product prices based on selected options and quantity
