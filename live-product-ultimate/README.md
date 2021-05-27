@@ -1,5 +1,5 @@
 # Live Product Ultimate
-The "Live Product Ultimate" extension is for OpenCart CMS 2.x-3.x versions. This is a more advanced version of the "Live Product+" extension, which has additional features such as displaying the total weight of the product and options, option stock balances, option points, weight, the use of SQL query caching, and more.
+The "Live Product Ultimate" extension is for OpenCart CMS 3.x versions. This is a more advanced version of the "Live Product+" extension, which has additional features such as displaying the total weight of the product and options, option stock balances, option points, weight, the use of SQL query caching, and more.
 
 ## Features (in addition to available in the base extension)
 * Total weight of product and selected options
