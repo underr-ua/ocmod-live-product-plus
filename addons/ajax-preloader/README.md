@@ -1,3 +1,3 @@
-# Ajax Preloader Addon
+# Ajax Preloader addon for Live Product
 
-The "Ajax Preloader Addon" is an addon for "Live Product+" module to displaying a little circle animation during price update.
+The addon to display a little circle animation during price update.
