@@ -36,5 +36,5 @@
 * Configure
 
 ## Additional Info
-* The extension is slightly theme-dependent on store templates, and in some cases minor corrections may be required to make it fully compatible with custom theme.
-* To display some specific text near free product options set price prefix for thees option to "=" and specify the text in the extension settings (option "Free")
+* The extension is a bit dependent on the template, and in some cases minor fixes may be needed to make it fully compatible with your own theme.
+
