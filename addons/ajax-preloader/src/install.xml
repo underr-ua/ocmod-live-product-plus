@@ -67,18 +67,18 @@ page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 	<file path="catalog/view/theme/*/template/product/product.twig" error="log">
 		<operation error="log">
 			<search>
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.ids.price_id }}" data-id="{{ live_product.ids.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.price_id }}" data-id="{{ live_product.css.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and not special %}{{ live_product.svg }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.ids.price_id }}" data-id="{{ live_product.ids.price_id }}">{{ price }}</span>{% else %}{{ price }}{% endif %}{% if live_product.status and not special %}{{ live_product.svg }}{% endif %}]]>
 			</add>
 		</operation>
 		<operation error="log">
 			<search>
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.ids.special_id }}" data-id="{{ live_product.ids.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_product.status %}<span id="{{ live_product.css.special_id }}" data-id="{{ live_product.css.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_product.status and special %}{{ live_product.svg }}{% endif %}]]>
+				<![CDATA[{% if live_product.status %}<span id="{{ live_product.ids.special_id }}" data-id="{{ live_product.ids.special_id }}">{{ special }}</span>{% else %}{{ special }}{% endif %}{% if live_product.status and special %}{{ live_product.svg }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
