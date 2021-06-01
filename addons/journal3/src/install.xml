@@ -7,9 +7,9 @@ page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 -->
 
 <modification>
-	<name>[underr] !Live Product+ > Journal3 </name>
+	<name>[underr] !!! Live Product+ > Journal3 </name>
 	<code>live-product--journal3</code>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<author>Andrii Burkatskyi aka underr</author>
 	<link>https://github.com/ocmod-space/ocmod-live-product</link>
 
@@ -29,7 +29,7 @@ page: https://raw.githubusercontent.com/ocmod-space/license/main/LICENSE.txt.
 				<![CDATA[<span>{{ product_weight }}</span>]]>
 			</search>
 			<add position="replace">
-				<![CDATA[{% if live_product.status and live_product.product_weight %}<span id="{{ live_product.ids.weight_id }}"></span>{% else %}{{ product_weight }}{% endif %}]]>
+				<![CDATA[{% if live_product.status and live_product.weight_total %}<span id="{{ live_product.ids.weight_id }}"></span>{% else %}{{ product_weight }}{% endif %}]]>
 			</add>
 		</operation>
 	</file>
