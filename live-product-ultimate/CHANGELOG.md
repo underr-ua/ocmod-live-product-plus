@@ -1,5 +1,9 @@
 # Change log
 
+## [1.4.1] - 2021.06.03:
+### Internal
+- Improved caching
+
 ## [1.4.0] - 2021.05.27:
 ### Fixed
 - "Options not in stock" message
