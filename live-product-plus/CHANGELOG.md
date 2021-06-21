@@ -1,5 +1,9 @@
 # Change log
 
+## [3.3.1] - 2021.06.21:
+### Fixed
+- Required parameter follows optional parameter
+
 ## [3.3.0] - 2021.05.27:
 ### Added
 - The remark that product prices, weight, etc., are multiplied by the selected quantity
